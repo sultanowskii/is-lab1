@@ -1,9 +1,10 @@
 package com.lab1.persons;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,8 +20,8 @@ public class PersonService {
         return personRepository.save(person);
     }
 
-    public List<Person> getAllPersons() {
-        return personRepository.findAll();
+    public Page<Person> getAllPersons(Pageable pageable) {
+        return personRepository.findAll(pageable);
     }
 
     public Optional<Person> getPersonById(Integer id) {

@@ -1,69 +1,71 @@
 package com.lab1.persons;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import com.lab1.persons.dto.*;
 import jakarta.validation.Valid;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/persons")
 public class PersonController {
     private final PersonService personService;
+    private final PersonMapper personMapper;
 
     @Autowired
-    public PersonController(PersonService personService) {
+    public PersonController(PersonService personService, PersonMapper personMapper) {
         this.personService = personService;
+        this.personMapper = personMapper;
     }
 
-    // Создание нового Person
     @PostMapping
-    public ResponseEntity<Person> createPerson(@Valid @RequestBody Person person) {
-        Person savedPerson = personService.savePerson(person);
-        return ResponseEntity.status(201).body(savedPerson);  // HTTP статус 201 (Created)
+    public ResponseEntity<PersonDto> createPerson(@Valid @RequestBody PersonCreateDto personForm) {
+        var person = personMapper.toEntityFromCreateDto(personForm);
+        var savedPerson = personService.savePerson(person);
+        return ResponseEntity.status(201).body(personMapper.toDto(savedPerson));
     }
 
-    // Получение всех Person
     @GetMapping
-    public List<Person> getAllPersons() {
-        return personService.getAllPersons();
+    public ResponseEntity<Page<PersonDto>> getAllPersons(@PageableDefault(size = 20) Pageable pageable) {
+        var persons = personService.getAllPersons(pageable).map(p -> personMapper.toDto(p));
+        return ResponseEntity.ok().body(persons);
     }
 
-    // Получение Person по ID
     @GetMapping("/{id}")
-    public ResponseEntity<Person> getPersonById(@PathVariable("id") int id) {
+    public ResponseEntity<PersonDto> getPersonById(@PathVariable("id") int id) {
         Optional<Person> person = personService.getPersonById(id);
-        return person.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
-    // Обновление Person по ID
-    @PutMapping("/{id}")
-    public ResponseEntity<Person> updatePerson(@PathVariable("id") int id, @Valid @RequestBody Person personDetails) {
-        Optional<Person> existingPerson = personService.getPersonById(id);
-        if (existingPerson.isPresent()) {
-            personDetails.setId(id);  // Устанавливаем ID, чтобы обновить существующую запись
-            Person updatedPerson = personService.savePerson(personDetails);
-            return ResponseEntity.ok(updatedPerson);
-        } else {
-            return ResponseEntity.notFound().build();  // Если Person не найден, возвращаем 404
+        if (!person.isPresent()) {
+            return ResponseEntity.notFound().build();
         }
+        return ResponseEntity.ok(personMapper.toDto(person.get()));
     }
 
-    // Удаление Person по ID
+    @PutMapping("/{id}")
+    public ResponseEntity<PersonDto> updatePerson(@PathVariable("id") int id, @Valid @RequestBody PersonCreateDto personForm) {
+        Optional<Person> existingPerson = personService.getPersonById(id);
+        if (!existingPerson.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        var personToUpdate = personMapper.toEntityFromCreateDto(personForm);
+        personToUpdate.setId(id);
+        Person updatedPerson = personService.savePerson(personToUpdate);
+        return ResponseEntity.ok(personMapper.toDto(updatedPerson));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePerson(@PathVariable("id") int id) {
         Optional<Person> existingPerson = personService.getPersonById(id);
         if (existingPerson.isPresent()) {
             personService.deletePerson(id);
-            return ResponseEntity.noContent().build();  // HTTP статус 204 (No Content)
+            return ResponseEntity.noContent().build();
         } else {
-            return ResponseEntity.notFound().build();  // Если Person не найден, возвращаем 404
+            return ResponseEntity.notFound().build();
         }
     }
 
-    // Поиск Person по имени
     @GetMapping("/name/{name}")
     public ResponseEntity<Person> getPersonByName(@PathVariable("name") String name) {
         Optional<Person> person = personService.getPersonByName(name);

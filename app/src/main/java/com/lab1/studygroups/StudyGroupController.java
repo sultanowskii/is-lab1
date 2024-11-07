@@ -18,48 +18,43 @@ public class StudyGroupController {
         this.studyGroupService = studyGroupService;
     }
 
-    // Создание нового StudyGroup
     @PostMapping
     public ResponseEntity<StudyGroup> createStudyGroup(@Valid @RequestBody StudyGroup studyGroup) {
         StudyGroup savedStudyGroup = studyGroupService.saveStudyGroup(studyGroup);
-        return ResponseEntity.status(201).body(savedStudyGroup);  // HTTP статус 201 (Created)
+        return ResponseEntity.status(201).body(savedStudyGroup);
     }
 
-    // Получение всех StudyGroup
     @GetMapping
     public List<StudyGroup> getAllStudyGroups() {
         return studyGroupService.getAllStudyGroups();
     }
 
-    // Получение StudyGroup по ID
     @GetMapping("/{id}")
     public ResponseEntity<StudyGroup> getStudyGroupById(@PathVariable("id") int id) {
         Optional<StudyGroup> studyGroup = studyGroupService.getStudyGroupById(id);
         return studyGroup.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Обновление StudyGroup по ID
     @PutMapping("/{id}")
     public ResponseEntity<StudyGroup> updateStudyGroup(@PathVariable("id") int id, @Valid @RequestBody StudyGroup studyGroupDetails) {
         Optional<StudyGroup> existingStudyGroup = studyGroupService.getStudyGroupById(id);
         if (existingStudyGroup.isPresent()) {
-            studyGroupDetails.setId(id);  // Устанавливаем ID, чтобы обновить существующую запись
+            studyGroupDetails.setId(id);
             StudyGroup updatedStudyGroup = studyGroupService.saveStudyGroup(studyGroupDetails);
             return ResponseEntity.ok(updatedStudyGroup);
         } else {
-            return ResponseEntity.notFound().build();  // Если StudyGroup не найден, возвращаем 404
+            return ResponseEntity.notFound().build();
         }
     }
 
-    // Удаление StudyGroup по ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteStudyGroup(@PathVariable("id") int id) {
         Optional<StudyGroup> existingStudyGroup = studyGroupService.getStudyGroupById(id);
         if (existingStudyGroup.isPresent()) {
             studyGroupService.deleteStudyGroup(id);
-            return ResponseEntity.noContent().build();  // HTTP статус 204 (No Content)
+            return ResponseEntity.noContent().build();
         } else {
-            return ResponseEntity.notFound().build();  // Если StudyGroup не найден, возвращаем 404
+            return ResponseEntity.notFound().build();
         }
     }
 }

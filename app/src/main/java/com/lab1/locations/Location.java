@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,15 +19,16 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false)
-    private Float x; //Поле не может быть null
+    @Column(name = "x", nullable = false)
+    private Float x;
 
-    @Column(nullable = false)
-    private Float y; //Поле не может быть null
+    @Column(name = "y", nullable = false)
+    private Float y;
 
-    @Column(nullable = false)
-    private Double z; //Поле не может быть null
+    @Column(name = "z", nullable = false)
+    private Double z;
 
-    @Column(length = 694)
-    private String name; //Длина строки не должна быть больше 694, Поле не может быть null
+    @Size(max = 694)
+    @Column(name = "name", length = 694)
+    private String name;
 }

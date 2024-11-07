@@ -11,6 +11,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -24,46 +25,48 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class StudyGroup {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
 
-    @Column(nullable = false)
     @NotBlank
-    private String name; //Поле не может быть null, Строка не может быть пустой
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @Embedded
-    private Coordinates coordinates; //Поле не может быть null
+    private Coordinates coordinates;
 
-    @Column(nullable = false, updatable = false)
-    private java.time.LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    @Column(name = "creation_date", nullable = false, updatable = false)
+    private java.time.LocalDateTime creationDate;
 
-    @Column(nullable = false)
     @Min(1)
-    private int studentsCount; //Значение поля должно быть больше 0
+    @Column(name = "students_count", nullable = false)
+    private int studentsCount;
 
-    @Column
-    private Integer expelledStudents; //Значение поля должно быть больше 0, Поле может быть null
-
-    @Column(nullable = false)
     @Min(1)
-    private int transferredStudents; //Значение поля должно быть больше 0
+    @Column(name = "expelled_students", nullable = false)
+    private Integer expelledStudents;
+
+    @Min(1)
+    @Column(name = "transferred_students", nullable = false)
+    private int transferredStudents;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private FormOfEducation formOfEducation; //Поле не может быть null
+    @Column(name = "form_of_education", nullable = false)
+    private FormOfEducation formOfEducation;
 
-    @Column(nullable = false)
     @Min(1)
-    private int shouldBeExpelled; //Значение поля должно быть больше 0
+    @Column(name = "should_be_expelled", nullable = false)
+    private int shouldBeExpelled;
 
-    @Column(nullable = false)
     @Min(1)
-    private int averageMark; //Значение поля должно быть больше 0
+    @Column(name = "average_mark", nullable = false)
+    private int averageMark;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Semester semesterEnum; //Поле не может быть null
+    @Column(name = "semester", nullable = false)
+    private Semester semesterEnum;
 
     @OneToOne(cascade = CascadeType.ALL)
-    private Person groupAdmin; //Поле может быть null
+    @JoinColumn(name = "group_admin_id", nullable = false)
+    private Person groupAdmin;
 }

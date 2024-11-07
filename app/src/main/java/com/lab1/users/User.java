@@ -1,16 +1,8 @@
 package com.lab1.users;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.validation.constraints.*;
+import lombok.*;
+import jakarta.persistence.*;
 
 @Entity
 @Data
@@ -24,12 +16,15 @@ public class User {
 
     @NotBlank
     @Size(min = 3, max = 32)
-    private String login;
+    @Column(name = "username", nullable = false)
+    private String username;
 
     @NotBlank
-    @Size(min = 4, max = 32)
+    @Size(min = 1)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @NotNull
-    private boolean isAdmin;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type", nullable = false)
+    private UserType type;
 }
