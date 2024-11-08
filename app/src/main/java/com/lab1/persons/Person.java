@@ -4,13 +4,13 @@ import com.lab1.locations.Location;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
-// import com.lab1.common.OwnedEntity;
+
+import com.lab1.common.Owned;
 
 @Entity
 @Getter
 @Setter
-// public class Person extends OwnedEntity {
-public class Person implements com.lab1.common.Entity {
+public class Person extends Owned implements com.lab1.common.Entity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

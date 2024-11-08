@@ -6,7 +6,7 @@ import com.lab1.users.User;
 import lombok.Data;
 
 @Data
-public abstract class OwnedEntityDto {
+public abstract class OwnedDto {
     private User owner;
     private ZonedDateTime createdAt;
     private User updatedBy;

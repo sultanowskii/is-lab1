@@ -1,5 +1,7 @@
 package com.lab1.locations;
 
+import com.lab1.common.Owned;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,14 +9,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Location implements com.lab1.common.Entity {
+public class Location extends Owned implements com.lab1.common.Entity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

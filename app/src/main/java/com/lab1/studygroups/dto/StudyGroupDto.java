@@ -1,11 +1,14 @@
 package com.lab1.studygroups.dto;
 
+import com.lab1.common.dto.OwnedDto;
 import com.lab1.persons.Person;
 import com.lab1.studygroups.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
-public class StudyGroupDto {
+@EqualsAndHashCode(callSuper = true)
+public class StudyGroupDto extends OwnedDto {
     private Integer id;
     private String name;
     private Coordinates coordinates;
