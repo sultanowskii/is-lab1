@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class PersonService {
+public class PersonService implements com.lab1.common.Service<Person> {
     private final PersonRepository personRepository;
 
     @Autowired
@@ -16,23 +16,23 @@ public class PersonService {
         this.personRepository = personRepository;
     }
 
-    public Person savePerson(Person person) {
+    public Person save(Person person) {
         return personRepository.save(person);
     }
 
-    public Page<Person> getAllPersons(Pageable pageable) {
+    public Page<Person> getAll(Pageable pageable) {
         return personRepository.findAll(pageable);
     }
 
-    public Optional<Person> getPersonById(Integer id) {
+    public Optional<Person> get(Integer id) {
         return personRepository.findById(id);
     }
 
-    public Optional<Person> getPersonByName(String name) {
+    public Optional<Person> getByName(String name) {
         return personRepository.findByName(name);
     }
 
-    public void deletePerson(Integer id) {
+    public void delete(Integer id) {
         personRepository.deleteById(id);
     }
 }

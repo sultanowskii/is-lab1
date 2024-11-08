@@ -1,7 +1,6 @@
 package com.lab1.studygroups;
 
-import jakarta.persistence.AttributeConverter;
-import jakarta.persistence.Converter;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 @Getter

@@ -10,7 +10,7 @@ import lombok.*;
 @Getter
 @Setter
 // public class Person extends OwnedEntity {
-public class Person {
+public class Person implements com.lab1.common.Entity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

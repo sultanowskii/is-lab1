@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Location {
+public class Location implements com.lab1.common.Entity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

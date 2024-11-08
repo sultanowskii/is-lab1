@@ -1,13 +1,12 @@
 package com.lab1.studygroups;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudyGroupService {
+public class StudyGroupService implements com.lab1.common.Service<StudyGroup> {
     private final StudyGroupRepository studyGroupRepository;
 
     @Autowired
@@ -15,19 +14,19 @@ public class StudyGroupService {
         this.studyGroupRepository = studyGroupRepository;
     }
 
-    public StudyGroup saveStudyGroup(StudyGroup person) {
+    public StudyGroup save(StudyGroup person) {
         return studyGroupRepository.save(person);
     }
 
-    public List<StudyGroup> getAllStudyGroups() {
-        return studyGroupRepository.findAll();
+    public Page<StudyGroup> getAll(Pageable pageable) {
+        return studyGroupRepository.findAll(pageable);
     }
 
-    public Optional<StudyGroup> getStudyGroupById(Integer id) {
+    public Optional<StudyGroup> get(Integer id) {
         return studyGroupRepository.findById(id);
     }
 
-    public void deleteStudyGroup(Integer id) {
+    public void delete(Integer id) {
         studyGroupRepository.deleteById(id);
     }
 }

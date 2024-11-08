@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @MappedSuperclass
-public abstract class OwnedEntity {
+public abstract class Owned {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "owner", nullable = false)
     private User owner;
