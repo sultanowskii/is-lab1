@@ -1,6 +1,6 @@
 package com.lab1.locations;
 
-import com.lab1.common.Owned;
+import com.lab1.common.OwnedEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,7 +18,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Location extends Owned implements com.lab1.common.Entity {
+public class Location extends OwnedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

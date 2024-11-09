@@ -5,9 +5,10 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface Service<Resource extends Entity> {
-    Resource save(Resource person);
-    Page<Resource> getAll(Pageable pageable);
-    Optional<Resource> get(Integer id);
-    void delete(Integer id);
+public interface Service<T extends Entity> {
+    T create(T obj);
+    T update(int id, T obj);
+    Page<T> getAll(Pageable pageable);
+    Optional<T> get(int id);
+    void delete(int id);
 }

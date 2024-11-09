@@ -13,15 +13,15 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class CRUDController<T extends Entity, TDto, TCreateDto> {
-    private final Service<T> service;
+public class CRUDController<T extends OwnedEntity, TDto, TCreateDto> {
+    private final CRUDService<T> service;
     private final BaseMapper<T, TDto, TCreateDto> mapper;
 
     @PostMapping
     @Operation(summary = "Create an object", security = @SecurityRequirement(name = "bearerTokenAuth"))
     public ResponseEntity<TDto> create(@Valid @RequestBody TCreateDto form) {
         var obj = mapper.toEntityFromCreateDto(form); 
-        var createdObj = service.save(obj);
+        var createdObj = service.create(obj);
         return ResponseEntity.status(201).body(mapper.toDto(createdObj));
     }
 
@@ -51,7 +51,7 @@ public class CRUDController<T extends Entity, TDto, TCreateDto> {
         }
         var objToUpdate = mapper.toEntityFromCreateDto(form);
         objToUpdate.setId(id);
-        var updatedObj = service.save(objToUpdate);
+        var updatedObj = service.update(id, objToUpdate);
         return ResponseEntity.ok(mapper.toDto(updatedObj));
     }
 

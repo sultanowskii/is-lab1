@@ -5,12 +5,12 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
-import com.lab1.common.Owned;
+import com.lab1.common.OwnedEntity;
 
 @Entity
 @Getter
 @Setter
-public class Person extends Owned implements com.lab1.common.Entity {
+public class Person extends OwnedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

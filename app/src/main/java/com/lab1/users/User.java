@@ -27,6 +27,7 @@ public class User implements UserDetails {
 
     @NotBlank
     @Column(name = "password", nullable = false)
+    @JsonIgnore
     private String password;
 
     @Enumerated(EnumType.STRING)
@@ -43,4 +44,29 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(type.name()));
     }
+
+    @Override
+    @JsonIgnore
+    public boolean isAccountNonExpired() {
+		return true;
+	}
+
+    @Override
+    @JsonIgnore
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+    @Override
+    @JsonIgnore
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+    
+    @Override
+    @JsonIgnore
+	public boolean isEnabled() {
+		return true;
+	}
 }

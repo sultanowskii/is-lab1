@@ -1,6 +1,6 @@
 package com.lab1.studygroups;
 
-import com.lab1.common.Owned;
+import com.lab1.common.OwnedEntity;
 import com.lab1.persons.Person;
 
 import jakarta.persistence.*;
@@ -12,7 +12,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudyGroup extends Owned implements com.lab1.common.Entity {
+public class StudyGroup extends OwnedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
