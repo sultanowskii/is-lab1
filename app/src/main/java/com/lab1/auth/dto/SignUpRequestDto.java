@@ -1,5 +1,7 @@
 package com.lab1.auth.dto;
 
+import com.lab1.users.UserType;
+
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
@@ -11,7 +13,11 @@ public class SignUpRequestDto {
     private String username;
 
     @Size(min = 3, max = 255, message = "Password length must be within [5; 255]")
-    @NotBlank(message = "Username must not be empty")
+    @NotBlank(message = "Password must not be empty")
     @NotNull
     private String password;
+
+    @NotBlank(message = "UserType must not be empty")
+    @NotNull
+    private UserType userType;
 }

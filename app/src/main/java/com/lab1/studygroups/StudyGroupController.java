@@ -9,7 +9,7 @@ import com.lab1.studygroups.dto.*;
 @RequestMapping("/api/studygroups")
 public class StudyGroupController extends CRUDController<StudyGroup, StudyGroupDto, StudyGroupCreateDto> {
     @Autowired
-    public StudyGroupController(StudyGroupService studyGroupService, StudyGroupMapper studyGroupMapper) {
-        super(studyGroupService, studyGroupMapper);
+    public StudyGroupController(StudyGroupService studyGroupService) {
+        super(studyGroupService);
     }
 }

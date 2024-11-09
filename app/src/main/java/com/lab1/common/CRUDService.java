@@ -1,54 +1,70 @@
 package com.lab1.common;
 
 import java.time.ZonedDateTime;
-import java.util.Optional;
 
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.lab1.common.error.NotFoundException;
+import com.lab1.common.error.PermissionDeniedException;
 import com.lab1.users.UserService;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class CRUDService<T extends OwnedEntity> implements com.lab1.common.Service<T> {
+public class CRUDService<T extends OwnedEntity, TDto, TCreateDto> implements com.lab1.common.Service<T, TDto, TCreateDto> {
     private final UserService userService;
     private final JpaRepository<T, Integer> repo;
+    private final BaseMapper<T, TDto, TCreateDto> mapper;
 
     @Transactional
-    public T create(T obj) {
+    public TDto create(TCreateDto form) {
+        var obj = mapper.toEntityFromCreateDto(form);
+
         obj.setOwner(userService.getCurrentUser());
         obj.setCreatedAt(ZonedDateTime.now());
         
-        return repo.save(obj);
+        var createdObj = repo.save(obj);
+
+        return mapper.toDto(createdObj);
     }
 
     @Transactional
-    public T update(int id, T updateObj) {
-        var obj = repo.findById(id).orElseThrow(() -> new RuntimeException("Resource with id=" + id + " not found"));
+    public TDto update(int id, TCreateDto form) {
+        var obj = repo.findById(id).orElseThrow(() -> new NotFoundException("Resource with id=" + id + " not found"));
 
-        updateObj.setId(obj.getId());
-        obj.setUpdatedBy(userService.getCurrentUser());
-        obj.setUpdatedAt(ZonedDateTime.now());
+        var currentUser = userService.getCurrentUser();
 
-        return repo.save(obj);
+        if (obj.getOwner() == currentUser || currentUser.isAdmin()) {
+            mapper.update(obj, form);
+            obj.setUpdatedBy(userService.getCurrentUser());
+            obj.setUpdatedAt(ZonedDateTime.now());
+            var updatedObj = repo.save(obj);
+            return mapper.toDto(updatedObj);
+        }
+
+        throw new PermissionDeniedException("You can't update this resource");
     }
 
-    public Page<T> getAll(Pageable pageable) {
-        return repo.findAll(pageable);
+    public Page<TDto> getAll(Pageable pageable) {
+        return repo.findAll(pageable).map(o -> mapper.toDto(o));
     }
 
-    public Optional<T> get(int id) {
-        return repo.findById(id);
+    public TDto get(int id) {
+        var obj = repo.findById(id).orElseThrow(() -> new NotFoundException("Resource with id=" + id + " not found"));
+        return mapper.toDto(obj);
     }
 
     @Transactional
     public void delete(int id) {
-        if (!repo.existsById(id)) {
-            throw new RuntimeException("Resource with id=" + id + " not found");
-        }
+        var obj = repo.findById(id).orElseThrow(() -> new NotFoundException("Resource with id=" + id + " not found"));
+        var currentUser = userService.getCurrentUser();
 
-        repo.deleteById(id);
+        if (obj.getOwner() == currentUser || currentUser.isAdmin()) {
+            repo.deleteById(id);
+        } else {
+            throw new PermissionDeniedException("You can't delete this resource");
+        }
     }
 }

@@ -10,8 +10,8 @@ import com.lab1.persons.dto.*;
 @RequestMapping("/api/persons")
 public class PersonController extends CRUDController<Person, PersonDto, PersonCreateDto> {
     @Autowired
-    public PersonController(PersonService personService, PersonMapper personMapper) {
-        super(personService, personMapper);
+    public PersonController(PersonService personService) {
+        super(personService);
     }
 }
 
