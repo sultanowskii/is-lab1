@@ -1,9 +1,10 @@
 package com.lab1.studygroups;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.lab1.common.CRUDRepository;
 
 @Repository
-public interface StudyGroupRepository extends JpaRepository<StudyGroup, Integer> {
+public interface StudyGroupRepository extends CRUDRepository<StudyGroup> {
 
 }

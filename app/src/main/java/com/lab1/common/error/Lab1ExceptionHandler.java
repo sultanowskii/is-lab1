@@ -20,6 +20,16 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class Lab1ExceptionHandler extends ResponseEntityExceptionHandler {
+    @ExceptionHandler({ Exception.class })
+    public ResponseEntity<Object> handleAnyException(Exception ex) {
+        final ApiError apiError = new ApiError(
+            HttpStatus.INTERNAL_SERVER_ERROR,
+            ex.getLocalizedMessage(),
+            "Unexpected exception:" + ex
+        );
+        return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
+    }
+
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
         final MethodArgumentNotValidException ex,
         final HttpHeaders headers,
@@ -73,6 +83,17 @@ public class Lab1ExceptionHandler extends ResponseEntityExceptionHandler {
             HttpStatus.FORBIDDEN,
             ex.getLocalizedMessage(),
             "You don't have permissions to perform this action"
+        );
+        return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
+    }
+
+
+    @ExceptionHandler({ BadRequestException.class })
+    public ResponseEntity<Object> handleBadRequest(Exception ex) {
+        final ApiError apiError = new ApiError(
+            HttpStatus.BAD_REQUEST,
+            ex.getLocalizedMessage(),
+            "Bad request"
         );
         return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
     }

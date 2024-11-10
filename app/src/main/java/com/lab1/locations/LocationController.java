@@ -10,8 +10,8 @@ import com.lab1.locations.dto.*;
 @RequestMapping("/api/locations")
 public class LocationController extends CRUDController<Location, LocationDto, LocationCreateDto> {
     @Autowired
-    public LocationController(LocationService locationService) {
-        super(locationService);
+    public LocationController(LocationService locationService, LocationSpecification locationSpecification) {
+        super(locationService, locationSpecification);
     }
 }
 

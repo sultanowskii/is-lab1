@@ -3,10 +3,10 @@ package com.lab1.common;
 import java.time.ZonedDateTime;
 
 import org.springframework.data.domain.*;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lab1.common.error.NotFoundException;
+import com.lab1.common.error.BadRequestException;
 import com.lab1.common.error.PermissionDeniedException;
 import com.lab1.users.UserService;
 
@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CRUDService<T extends OwnedEntity, TDto, TCreateDto> implements com.lab1.common.Service<T, TDto, TCreateDto> {
     private final UserService userService;
-    private final JpaRepository<T, Integer> repo;
+    private final CRUDRepository<T> repo;
     private final BaseMapper<T, TDto, TCreateDto> mapper;
 
     @Transactional
@@ -32,7 +32,7 @@ public class CRUDService<T extends OwnedEntity, TDto, TCreateDto> implements com
 
     @Transactional
     public TDto update(int id, TCreateDto form) {
-        var obj = repo.findById(id).orElseThrow(() -> new NotFoundException("Resource with id=" + id + " not found"));
+        var obj = repo.findById(id).orElseThrow(() -> new BadRequestException("Resource with id=" + id + " not found"));
 
         var currentUser = userService.getCurrentUser();
 
@@ -47,18 +47,18 @@ public class CRUDService<T extends OwnedEntity, TDto, TCreateDto> implements com
         throw new PermissionDeniedException("You can't update this resource");
     }
 
-    public Page<TDto> getAll(Pageable pageable) {
-        return repo.findAll(pageable).map(o -> mapper.toDto(o));
+    public Page<TDto> getAll(Specification<T> specification, Pageable pageable) {
+        return repo.findAll(specification, pageable).map(o -> mapper.toDto(o));
     }
 
     public TDto get(int id) {
-        var obj = repo.findById(id).orElseThrow(() -> new NotFoundException("Resource with id=" + id + " not found"));
+        var obj = repo.findById(id).orElseThrow(() -> new BadRequestException("Resource with id=" + id + " not found"));
         return mapper.toDto(obj);
     }
 
     @Transactional
     public void delete(int id) {
-        var obj = repo.findById(id).orElseThrow(() -> new NotFoundException("Resource with id=" + id + " not found"));
+        var obj = repo.findById(id).orElseThrow(() -> new BadRequestException("Resource with id=" + id + " not found"));
         var currentUser = userService.getCurrentUser();
 
         if (obj.getOwner() == currentUser || currentUser.isAdmin()) {

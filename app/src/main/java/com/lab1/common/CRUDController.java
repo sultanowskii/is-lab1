@@ -1,9 +1,14 @@
 package com.lab1.common;
 
+import org.apache.coyote.BadRequestException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.lab1.common.dto.SearchParamsDto;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -13,6 +18,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CRUDController<T extends OwnedEntity, TDto, TCreateDto> {
     private final CRUDService<T, TDto, TCreateDto> service;
+    @Autowired
+    private CRUDSpecification<T> specBuilder;
 
     @PostMapping
     @Operation(summary = "Create an object", security = @SecurityRequirement(name = "bearerTokenAuth"))
@@ -22,8 +29,13 @@ public class CRUDController<T extends OwnedEntity, TDto, TCreateDto> {
 
     @GetMapping
     @Operation(summary = "Get all objects", security = @SecurityRequirement(name = "bearerTokenAuth"))
-    public ResponseEntity<Page<TDto>> getAll(@PageableDefault(size = 20) Pageable pageable) {
-        return ResponseEntity.ok().body(service.getAll(pageable));
+    public ResponseEntity<Page<TDto>> getAll(SearchParamsDto searchParamsDto, @PageableDefault(size = 20) Pageable pageable) throws BadRequestException {
+        searchParamsDto.validate();
+        Specification<T> spec = null;
+        if (!searchParamsDto.isEmpty()) {
+            spec = specBuilder.build(searchParamsDto);
+        }
+        return ResponseEntity.ok().body(service.getAll(spec, pageable));
     }
 
     @GetMapping("/{id}")
