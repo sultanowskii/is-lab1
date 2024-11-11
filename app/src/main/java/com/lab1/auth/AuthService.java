@@ -33,7 +33,11 @@ public class AuthService {
         var createdUser = userService.create(user);
 
         if (request.getUserType().equals(UserType.ADMIN)) {
-            adminApplicationService.create(new AdminApplicationCreateDto(createdUser.getId()));
+            if (userService.canAdminBeCreatedWithoutApplication()) {
+                user.setType(UserType.ADMIN);
+            } else {
+                adminApplicationService.create(new AdminApplicationCreateDto(createdUser.getId()));
+            }
         }
 
         var jwt = jwtService.generateToken(user);

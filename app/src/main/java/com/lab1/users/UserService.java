@@ -5,6 +5,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import com.lab1.common.error.BadRequestException;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -20,7 +23,7 @@ public class UserService {
     public User create(User user) {
         var username = user.getUsername();
         if (repository.existsByUsername(username)) {
-            throw new RuntimeException("User '" + username + "' already exists");
+            throw new BadRequestException("User '" + username + "' already exists");
         }
 
         return save(user);
@@ -39,5 +42,9 @@ public class UserService {
     public User getCurrentUser() {
         var username = SecurityContextHolder.getContext().getAuthentication().getName();
         return getByUsername(username);
+    }
+
+    public boolean canAdminBeCreatedWithoutApplication() {
+        return !repository.existsByType(UserType.ADMIN);
     }
 }

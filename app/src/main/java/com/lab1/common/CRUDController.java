@@ -1,7 +1,6 @@
 package com.lab1.common;
 
 import org.apache.coyote.BadRequestException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.web.PageableDefault;
@@ -18,7 +17,6 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CRUDController<T extends OwnedEntity, TDto, TCreateDto> {
     private final CRUDService<T, TDto, TCreateDto> service;
-    @Autowired
     private CRUDSpecification<T> specBuilder;
 
     @PostMapping

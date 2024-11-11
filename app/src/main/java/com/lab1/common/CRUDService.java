@@ -14,9 +14,9 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class CRUDService<T extends OwnedEntity, TDto, TCreateDto> implements com.lab1.common.Service<T, TDto, TCreateDto> {
-    private final UserService userService;
-    private final CRUDRepository<T> repo;
-    private final BaseMapper<T, TDto, TCreateDto> mapper;
+    protected final UserService userService;
+    protected final CRUDRepository<T> repo;
+    protected final BaseMapper<T, TDto, TCreateDto> mapper;
 
     @Transactional
     public TDto create(TCreateDto form) {

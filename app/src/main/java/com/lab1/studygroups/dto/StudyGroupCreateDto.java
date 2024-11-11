@@ -1,6 +1,5 @@
 package com.lab1.studygroups.dto;
 
-import com.lab1.persons.Person;
 import com.lab1.studygroups.Coordinates;
 import com.lab1.studygroups.FormOfEducation;
 import com.lab1.studygroups.Semester;
@@ -22,9 +21,6 @@ public class StudyGroupCreateDto {
 
     @NotNull
     private Coordinates coordinates;
-
-    @NotNull
-    private java.time.LocalDateTime creationDate;
 
     @Min(1)
     @NotNull
@@ -53,5 +49,5 @@ public class StudyGroupCreateDto {
     private Semester semesterEnum;
 
     @NotNull
-    private Person groupAdmin;
+    private int groupAdminId;
 }

@@ -6,7 +6,7 @@ import com.lab1.common.CRUDController;
 import com.lab1.studygroups.dto.*;
 
 @RestController
-@RequestMapping("/api/studygroups")
+@RequestMapping("/api/study-groups")
 public class StudyGroupController extends CRUDController<StudyGroup, StudyGroupDto, StudyGroupCreateDto> {
     @Autowired
     public StudyGroupController(StudyGroupService studyGroupService, StudyGroupSpecification studyGroupSpecification) {

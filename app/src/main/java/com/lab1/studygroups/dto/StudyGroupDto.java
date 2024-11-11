@@ -1,7 +1,6 @@
 package com.lab1.studygroups.dto;
 
 import com.lab1.common.dto.OwnedDto;
-import com.lab1.persons.Person;
 import com.lab1.studygroups.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,5 +19,5 @@ public class StudyGroupDto extends OwnedDto {
     private int shouldBeExpelled;
     private int averageMark;
     private Semester semesterEnum;
-    private Person groupAdmin;
+    private int groupAdminId;
 }
