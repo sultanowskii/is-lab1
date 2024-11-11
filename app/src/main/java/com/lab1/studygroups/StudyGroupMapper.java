@@ -4,6 +4,7 @@ import org.mapstruct.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lab1.common.BaseMapper;
+import com.lab1.common.error.ValidationException;
 import com.lab1.persons.Person;
 import com.lab1.persons.PersonRepository;
 import com.lab1.studygroups.dto.*;
@@ -26,7 +27,9 @@ public abstract class StudyGroupMapper implements BaseMapper<StudyGroup, StudyGr
 
     @Named("mapGroupAdmin")
     protected Person mapGroupAdmin(int groupAdminId) {
-        return personRepository.findById(groupAdminId).orElse(null);
+        return personRepository
+            .findById(groupAdminId)
+            .orElseThrow(() -> new ValidationException("Person with id=" + groupAdminId + " (groupAdminId) not found"));
     }
 
     @Named("mapGroupAdminId")

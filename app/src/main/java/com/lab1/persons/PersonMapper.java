@@ -4,6 +4,7 @@ import org.mapstruct.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lab1.common.BaseMapper;
+import com.lab1.common.error.ValidationException;
 import com.lab1.locations.*;
 import com.lab1.persons.dto.*;
 
@@ -23,7 +24,9 @@ public abstract class PersonMapper implements BaseMapper<Person, PersonDto, Pers
 
     @Named("mapLocation") 
     protected Location mapLocation(int locationId) {
-        return locationRepository.findById(locationId).orElse(null);
+        return locationRepository
+            .findById(locationId)
+            .orElseThrow(() -> new ValidationException("Location with id=" + locationId + " not found"));
     }
 
     @Named("mapLocationId") 

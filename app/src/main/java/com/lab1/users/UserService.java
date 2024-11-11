@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.lab1.common.error.BadRequestException;
+import com.lab1.common.error.ValidationException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,7 +23,7 @@ public class UserService {
     public User create(User user) {
         var username = user.getUsername();
         if (repository.existsByUsername(username)) {
-            throw new BadRequestException("User '" + username + "' already exists");
+            throw new ValidationException("User '" + username + "' already exists");
         }
 
         return save(user);

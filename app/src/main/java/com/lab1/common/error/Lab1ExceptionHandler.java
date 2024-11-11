@@ -88,8 +88,8 @@ public class Lab1ExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
-    @ExceptionHandler({ BadRequestException.class })
-    public ResponseEntity<Object> handleBadRequest(Exception ex) {
+    @ExceptionHandler({ ValidationException.class })
+    public ResponseEntity<Object> handleValidationException(Exception ex) {
         final ApiError apiError = new ApiError(
             HttpStatus.BAD_REQUEST,
             ex.getLocalizedMessage(),

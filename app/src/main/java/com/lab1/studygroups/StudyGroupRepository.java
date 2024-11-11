@@ -22,6 +22,6 @@ public interface StudyGroupRepository extends CRUDRepository<StudyGroup> {
     @Query(value = "SELECT count_study_groups_total_expelled_students()", nativeQuery = true)
     int countTotalExpelledStudents();
 
-    @Query(value = "SELECT change_study_group_form_of_education_to(:id, :form_of_education)", nativeQuery = true)
-    boolean changeFormOfEducationTo(@Param("id") int id, @Param("form_of_education") FormOfEducation formOfEducation);
+    @Query(value = "SELECT * FROM change_study_group_form_of_education_to(:id, :form_of_education)", nativeQuery = true)
+    StudyGroup changeFormOfEducationTo(@Param("id") int id, @Param("form_of_education") String formOfEducation);
 }

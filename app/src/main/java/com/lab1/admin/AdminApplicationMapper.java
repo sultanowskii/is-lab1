@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.lab1.admin.dto.AdminApplicationCreateDto;
 import com.lab1.admin.dto.AdminApplicationDto;
 import com.lab1.common.BaseMapper;
+import com.lab1.common.error.ValidationException;
 import com.lab1.users.User;
 import com.lab1.users.UserRepository;
 
@@ -32,7 +33,9 @@ public abstract class AdminApplicationMapper implements BaseMapper<AdminApplicat
 
     @Named("mapUser") 
     protected User mapUser(int userId) {
-        return userRepo.findById(userId).orElse(null);
+        return userRepo
+            .findById(userId)
+            .orElseThrow(() -> new ValidationException("User with id=" + userId + " not found"));
     }
 
     @Named("mapUserId") 

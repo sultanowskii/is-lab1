@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lab1.admin.dto.AdminApplicationCreateDto;
 import com.lab1.admin.dto.AdminApplicationDto;
-import com.lab1.common.error.BadRequestException;
+import com.lab1.common.error.ValidationException;
 import com.lab1.common.error.PermissionDeniedException;
 import com.lab1.users.UserService;
 import com.lab1.users.UserType;
@@ -33,7 +33,9 @@ public class AdminApplicationService {
     private AdminApplication updateStatus(int id, AdminApplicationStatus status) {
         checkIfAdmin();
 
-        var application = adminApplicationRepo.findById(id).orElseThrow(() -> new BadRequestException("Resource with id=" + id + " not found"));
+        var application = adminApplicationRepo
+            .findById(id)
+            .orElseThrow(() -> new ValidationException("Resource with id=" + id + " not found"));
         application.setStatus(status);
         var savedApplication = adminApplicationRepo.save(application);
 
@@ -62,14 +64,18 @@ public class AdminApplicationService {
     }
 
     public AdminApplicationDto get(int id) {
-        var application = adminApplicationRepo.findById(id).orElseThrow(() -> new BadRequestException("Resource with id=" + id + " not found"));
+        var application = adminApplicationRepo
+            .findById(id)
+            .orElseThrow(() -> new ValidationException("Resource with id=" + id + " not found"));
         checkIfAdminOrOwner(application);
         return adminApplicationMapper.toDto(application);
     }
 
     @Transactional
     public void delete(int id) {
-        var application = adminApplicationRepo.findById(id).orElseThrow(() -> new BadRequestException("Resource with id=" + id + " not found"));
+        var application = adminApplicationRepo
+            .findById(id)
+            .orElseThrow(() -> new ValidationException("Resource with id=" + id + " not found"));
         checkIfAdminOrOwner(application);
         adminApplicationRepo.deleteById(id);
     }

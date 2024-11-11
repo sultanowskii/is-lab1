@@ -6,7 +6,7 @@ import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lab1.common.error.BadRequestException;
+import com.lab1.common.error.ValidationException;
 import com.lab1.common.error.PermissionDeniedException;
 import com.lab1.users.UserService;
 
@@ -32,7 +32,9 @@ public class CRUDService<T extends OwnedEntity, TDto, TCreateDto> implements com
 
     @Transactional
     public TDto update(int id, TCreateDto form) {
-        var obj = repo.findById(id).orElseThrow(() -> new BadRequestException("Resource with id=" + id + " not found"));
+        var obj = repo
+            .findById(id)
+            .orElseThrow(() -> new ValidationException("Resource with id=" + id + " not found"));
 
         var currentUser = userService.getCurrentUser();
 
@@ -48,17 +50,23 @@ public class CRUDService<T extends OwnedEntity, TDto, TCreateDto> implements com
     }
 
     public Page<TDto> getAll(Specification<T> specification, Pageable pageable) {
-        return repo.findAll(specification, pageable).map(o -> mapper.toDto(o));
+        return repo
+            .findAll(specification, pageable)
+            .map(o -> mapper.toDto(o));
     }
 
     public TDto get(int id) {
-        var obj = repo.findById(id).orElseThrow(() -> new BadRequestException("Resource with id=" + id + " not found"));
+        var obj = repo
+            .findById(id)
+            .orElseThrow(() -> new ValidationException("Resource with id=" + id + " not found"));
         return mapper.toDto(obj);
     }
 
     @Transactional
     public void delete(int id) {
-        var obj = repo.findById(id).orElseThrow(() -> new BadRequestException("Resource with id=" + id + " not found"));
+        var obj = repo
+            .findById(id)
+            .orElseThrow(() -> new ValidationException("Resource with id=" + id + " not found"));
         var currentUser = userService.getCurrentUser();
 
         if (obj.getOwner() == currentUser || currentUser.isAdmin()) {

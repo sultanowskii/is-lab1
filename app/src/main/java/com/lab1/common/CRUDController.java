@@ -1,6 +1,5 @@
 package com.lab1.common;
 
-import org.apache.coyote.BadRequestException;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.web.PageableDefault;
@@ -8,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.lab1.common.dto.SearchParamsDto;
+import com.lab1.common.error.ValidationException;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -27,7 +27,7 @@ public class CRUDController<T extends OwnedEntity, TDto, TCreateDto> {
 
     @GetMapping
     @Operation(summary = "Get all objects", security = @SecurityRequirement(name = "bearerTokenAuth"))
-    public ResponseEntity<Page<TDto>> getAll(SearchParamsDto searchParamsDto, @PageableDefault(size = 20) Pageable pageable) throws BadRequestException {
+    public ResponseEntity<Page<TDto>> getAll(SearchParamsDto searchParamsDto, @PageableDefault(size = 20) Pageable pageable) throws ValidationException {
         searchParamsDto.validate();
         Specification<T> spec = null;
         if (!searchParamsDto.isEmpty()) {

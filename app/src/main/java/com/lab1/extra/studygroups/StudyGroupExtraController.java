@@ -53,11 +53,10 @@ public class StudyGroupExtraController {
         return ResponseEntity.ok(result);
     }
 
-    // TODO: return StudyGroupDto on success.
     @PostMapping("/change-form-of-education")
     @Operation(summary = "Change form of education of a study group", security = @SecurityRequirement(name = "bearerTokenAuth"))
-    public ResponseEntity<Void> changeFormOfEducationTo(StudyGroupChangeFormOfEducationToRequestDto dto) {
-        studyGroupExtraService.changeFormOfEducationTo(dto);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<StudyGroupDto> changeFormOfEducationTo(StudyGroupChangeFormOfEducationToRequestDto dto) {
+        final var result = studyGroupExtraService.changeFormOfEducationTo(dto);
+        return ResponseEntity.ok(result);
     }
 }

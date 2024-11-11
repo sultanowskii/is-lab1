@@ -1,6 +1,6 @@
 package com.lab1.common.dto;
 
-import com.lab1.common.error.BadRequestException;
+import com.lab1.common.error.ValidationException;
 
 import lombok.Data;
 
@@ -9,9 +9,9 @@ public class SearchParamsDto {
     String searchFieldName;
     String searchString;
 
-    public void validate() throws BadRequestException {
+    public void validate() throws ValidationException {
         if (!isValid()) {
-            throw new BadRequestException("Params 'searchFieldName' and 'searchString' work in pair - you must use either both or none");
+            throw new ValidationException("Params 'searchFieldName' and 'searchString' work in pair - you must use either both or none");
         }
     }
 
