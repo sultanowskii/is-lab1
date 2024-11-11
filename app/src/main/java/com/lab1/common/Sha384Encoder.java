@@ -7,17 +7,17 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Objects;
 
-public class Sha256Encoder implements PasswordEncoder {
+public class Sha384Encoder implements PasswordEncoder {
     @Override
     public String encode(CharSequence raw) {
         byte[] bytes = raw.toString().getBytes(StandardCharsets.UTF_8);
 
         try {
-            var md = MessageDigest.getInstance("SHA-256");
+            var md = MessageDigest.getInstance("SHA-384");
             md.update(bytes);
             return new String(Base64.getEncoder().encode(md.digest()));
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException("SHA-256 algorithm not found in MessageDigest", e);
+            throw new RuntimeException("SHA-384 algorithm not found in MessageDigest", e);
         }
     }
 

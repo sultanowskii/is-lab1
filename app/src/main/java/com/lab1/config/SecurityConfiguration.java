@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 
 import com.lab1.auth.JwtFilter;
-import com.lab1.common.Sha256Encoder;
+import com.lab1.common.Sha384Encoder;
 import com.lab1.users.UserService;
 import lombok.RequiredArgsConstructor;
 
@@ -73,7 +73,7 @@ public class SecurityConfiguration {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new Sha256Encoder();
+        return new Sha384Encoder();
     }
 
     @Bean

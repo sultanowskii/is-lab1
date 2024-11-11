@@ -17,7 +17,6 @@ public class SignUpRequestDto {
     @NotNull
     private String password;
 
-    @NotBlank(message = "UserType must not be empty")
-    @NotNull
+    @NotNull(message = "UserType must not be null")
     private UserType userType;
 }
