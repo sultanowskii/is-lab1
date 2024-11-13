@@ -1,5 +1,6 @@
 package com.lab1.common.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lab1.common.error.ValidationException;
 
 import lombok.Data;
@@ -15,10 +16,12 @@ public class SearchParamsDto {
         }
     }
 
+    @JsonIgnore
     public boolean isValid() {
         return (searchFieldName == null && searchString == null) || (searchFieldName != null && searchString != null);
     }
 
+    @JsonIgnore
     public boolean isEmpty() {
         return searchFieldName == null && searchString == null;
     }
