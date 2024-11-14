@@ -7,6 +7,8 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lab1.common.error.ValidationException;
+import com.lab1.common.paging.Paginator;
+import com.lab1.common.paging.SmartPage;
 import com.lab1.common.error.PermissionDeniedException;
 import com.lab1.users.UserService;
 
@@ -49,10 +51,10 @@ public class CRUDService<T extends OwnedEntity, TDto, TCreateDto> implements com
         throw new PermissionDeniedException("You can't update this resource");
     }
 
-    public Page<TDto> getAll(Specification<T> specification, Pageable pageable) {
-        return repo
-            .findAll(specification, pageable)
-            .map(o -> mapper.toDto(o));
+    public Page<TDto> getAll(Specification<T> specification, Paginator paginator) {
+        final var allObject = repo.findAll(specification);
+        final var paged = new SmartPage<>(allObject, paginator);
+        return paged.map(o -> mapper.toDto(o));
     }
 
     public TDto get(int id) {

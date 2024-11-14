@@ -6,5 +6,4 @@ import org.springframework.data.repository.NoRepositoryBean;
 
 @NoRepositoryBean
 public interface CRUDRepository<T extends OwnedEntity> extends JpaRepository<T, Integer>, JpaSpecificationExecutor<T> {
-    
 }

@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 @MappedSuperclass
 public abstract class Owned {
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "owner", nullable = false)
     private User owner;
 
@@ -18,7 +18,7 @@ public abstract class Owned {
     @Column(name="created_at", nullable=false)
     private ZonedDateTime createdAt;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "updated_by")
     private User updatedBy;
 

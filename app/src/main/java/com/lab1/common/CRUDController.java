@@ -1,5 +1,6 @@
 package com.lab1.common;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.web.PageableDefault;
@@ -8,16 +9,24 @@ import org.springframework.web.bind.annotation.*;
 
 import com.lab1.common.dto.SearchParamsDto;
 import com.lab1.common.error.ValidationException;
+import com.lab1.common.paging.PaginationMapper;
+import com.lab1.common.paging.dto.PaginationDto;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 public class CRUDController<T extends OwnedEntity, TDto, TCreateDto> {
     private final CRUDService<T, TDto, TCreateDto> service;
     private CRUDSpecification<T> specBuilder;
+
+    @Autowired
+    private PaginationMapper paginationMapper;
+
+    public CRUDController(CRUDService<T, TDto, TCreateDto> service, CRUDSpecification<T> specBuilder) {
+        this.service = service;
+        this.specBuilder = specBuilder;
+    }
 
     @PostMapping
     @Operation(summary = "Create an object", security = @SecurityRequirement(name = "bearerTokenAuth"))
@@ -27,13 +36,14 @@ public class CRUDController<T extends OwnedEntity, TDto, TCreateDto> {
 
     @GetMapping
     @Operation(summary = "Get all objects", security = @SecurityRequirement(name = "bearerTokenAuth"))
-    public ResponseEntity<Page<TDto>> getAll(SearchParamsDto searchParamsDto, @PageableDefault(size = 20) Pageable pageable) throws ValidationException {
+    public ResponseEntity<Page<TDto>> getAll(SearchParamsDto searchParamsDto, @PageableDefault(size = 20) PaginationDto pagiationDto) throws ValidationException {
         searchParamsDto.validate();
         Specification<T> spec = null;
         if (!searchParamsDto.isEmpty()) {
             spec = specBuilder.build(searchParamsDto);
         }
-        return ResponseEntity.ok().body(service.getAll(spec, pageable));
+        final var paginator = paginationMapper.toEntity(pagiationDto);
+        return ResponseEntity.ok().body(service.getAll(spec, paginator));
     }
 
     @GetMapping("/{id}")
