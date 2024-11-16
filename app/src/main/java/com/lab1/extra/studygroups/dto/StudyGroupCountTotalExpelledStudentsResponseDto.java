@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class StudyGroupCountTotalExpelledStudentsResponseDto {
-    int countTotalExpelledStudentCount;
+    int totalExpelledStudentCount;
 }

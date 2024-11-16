@@ -49,6 +49,9 @@ dependencies {
     implementation 'org.eclipse.persistence:eclipselink:4.0.4'
     implementation 'org.postgresql:postgresql:42.7.3'
 
+    // Redis
+    implementation 'redis.clients:jedis:5.2.0'
+
     implementation libs.guava
 }
 

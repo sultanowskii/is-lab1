@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.lab1.common.Cache;
 import com.lab1.common.error.NotFoundException;
 import com.lab1.extra.studygroups.dto.StudyGroupChangeFormOfEducationToRequestDto;
 import com.lab1.extra.studygroups.dto.StudyGroupCountTotalExpelledStudentsResponseDto;
@@ -15,12 +16,14 @@ import com.lab1.studygroups.StudyGroupRepository;
 import com.lab1.studygroups.dto.StudyGroupDto;
 
 import lombok.AllArgsConstructor;
+import redis.clients.jedis.Jedis;
 
 @Service
 @AllArgsConstructor
 public class StudyGroupExtraService {
     private final StudyGroupRepository studyGroupRepository;
     private final StudyGroupMapper studyGroupMapper;
+    private final Jedis jedis;
 
     @Transactional
     public boolean deleteWithAverageMark(StudyGroupDeleteWithAverageMarkRequestDto dto) {
@@ -41,7 +44,16 @@ public class StudyGroupExtraService {
     }
 
     public StudyGroupCountTotalExpelledStudentsResponseDto countTotalExpelledStudents() {
-        final var total = studyGroupRepository.countTotalExpelledStudents();
+        int total = 0;
+
+        if (jedis.exists(Cache.CACHE_KEY_TOTAL_EXPELLED_STUDENTS)) {
+            final var raw = jedis.get(Cache.CACHE_KEY_TOTAL_EXPELLED_STUDENTS);
+            total = Integer.parseInt(raw);
+        } else {
+            total = studyGroupRepository.countTotalExpelledStudents();
+            jedis.set(Cache.CACHE_KEY_TOTAL_EXPELLED_STUDENTS, String.valueOf(total));
+        }
+
         return new StudyGroupCountTotalExpelledStudentsResponseDto(total);
     }
 
