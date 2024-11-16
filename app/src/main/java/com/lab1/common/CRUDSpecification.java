@@ -8,7 +8,6 @@ import com.lab1.common.error.ValidationException;
 public abstract class CRUDSpecification<T extends OwnedEntity> {
     public abstract boolean isFieldValid(String fieldName);
 
-
     public Specification<T> build(SearchParamsDto searchParamsDto) throws ValidationException {
         return withFieldContaining(searchParamsDto.getSearchFieldName(), searchParamsDto.getSearchString());
     }

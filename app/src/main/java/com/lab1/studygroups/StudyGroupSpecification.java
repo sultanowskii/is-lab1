@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class StudyGroupSpecification extends CRUDSpecification<StudyGroup> {
-    private static final Set<String> VALID_SEARCH_FIELDS = Set.of("name", "form_of_education", "semester");
+    private static final Set<String> VALID_SEARCH_FIELDS = Set.of("name", "formOfEducation", "semester");
 
     @Override
     public boolean isFieldValid(String fieldName) {

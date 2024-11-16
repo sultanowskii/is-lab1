@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Groups</title>
+    <script src="/js/studygroups.js" defer type="module"></script>
+</head>
+<body>
+    <div>
+        <label for="page-size">Page size:</label>
+        <input type="number" id="page-size" placeholder="10" value="10" min="0">
+    </div>
+    <div>
+        <label for="user-type">Search field:</label>
+        <select id="search-field">
+            <option value="" selected></option>
+            <option value="name">Name</option>
+            <option value="formOfEducation">Form of education</option>
+            <option value="semester">Semester</option>
+        </select>
+    </div>
+    <div>
+        <label for="search-prompt">Search prompt:</label>
+        <input type="text" id="search-prompt" placeholder="...">
+    </div>
+    <div id="sort-section">
+        <span>Sort fields</span>
+        <label class="checkbox-item"><input type="checkbox" id="checkbox-item-input-name" class="checkbox-item-input" value="name">Name</label>
+        <label class="checkbox-item"><input type="checkbox" id="checkbox-item-input-form-of-education" class="checkbox-item-input" value="formOfEducation">Form of education</label>
+        <label class="checkbox-item"><input type="checkbox" id="checkbox-item-input-semester" class="checkbox-item-input" value="semester">Semester</label>
+    </div>
+    <div id="table-container"></div>
+    <div>
+        <button id="previous-page">Previous page</button>
+        <span id="page-number-text"></span>
+        <button id="next-page">Next page</button>
+    </div>
+</body>
+</html>

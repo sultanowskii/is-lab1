@@ -60,6 +60,10 @@ public class SecurityConfiguration {
                     request
                         .requestMatchers("/auth/**").permitAll();
 
+
+                    request
+                        .requestMatchers("/**").permitAll();
+
                     request
                         .requestMatchers("/api/**").authenticated();
                 }

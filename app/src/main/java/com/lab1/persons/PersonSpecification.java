@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PersonSpecification extends CRUDSpecification<Person> {
-    private static final Set<String> VALID_SEARCH_FIELDS = Set.of("name", "eye_color", "hair_color");
+    private static final Set<String> VALID_SEARCH_FIELDS = Set.of("name", "eyeColor", "hairColor");
 
     @Override
     public boolean isFieldValid(String fieldName) {
