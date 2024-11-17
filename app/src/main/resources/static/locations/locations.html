@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Groups</title>
+    <title>Locations</title>
     <link rel="stylesheet" href="/common/css/buttons.css">
     <link rel="stylesheet" href="/common/css/list.css">
-    <script src="/study-groups/js/study-groups.js" defer type="module"></script>
+    <script src="/locations/js/locations.js" defer type="module"></script>
 </head>
 <body>
-    <h1>Study Groups</h1>
+    <h1>Location</h1>
     <div>
         <a href="/index">&lt; &lt; Back to main</a>
     </div>
     <div>
-        <a href="/study-groups/create">Create Study Group</a>
+        <a href="/locations/create">Create Location</a>
     </div>
     <div>
         <label for="page-size">Page size:</label>
@@ -25,8 +25,6 @@
         <select id="search-field">
             <option value="" selected></option>
             <option value="name">Name</option>
-            <option value="formOfEducation">Form of education</option>
-            <option value="semester">Semester</option>
         </select>
     </div>
     <div>
@@ -36,8 +34,6 @@
     <div id="sort-section">
         <span>Sort fields:</span>
         <label class="checkbox-item"><input type="checkbox" id="checkbox-item-input-name" class="checkbox-item-input" value="name">Name</label>
-        <label class="checkbox-item"><input type="checkbox" id="checkbox-item-input-form-of-education" class="checkbox-item-input" value="formOfEducation">Form of education</label>
-        <label class="checkbox-item"><input type="checkbox" id="checkbox-item-input-semester" class="checkbox-item-input" value="semester">Semester</label>
     </div>
     <div id="table-container"></div>
     <div class="table-navigation-block">

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Location</title>
+    <link rel="stylesheet" href="/common/css/object.css">
+    <link rel="stylesheet" href="/common/css/buttons.css">
+    <script src="/locations/js/location.js" defer type="module"></script>
+</head>
+<body>
+    <h1>Location</h1>
+    <a href="/locations">&lt; &lt; Back to list</a>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+
+    <form id="location-form">
+        <label for="name">Name:</label>
+        <input class="form-input" type="text" id="name" name="name" required placeholder="Enter name">
+
+        <!-- read-only ownership fields -->
+        <label for="owner-username">Owner username:</label>
+        <input type="text" id="owner-username" disabled>
+
+        <label for="created-at">Created at:</label>
+        <input type="text" id="created-at" disabled>
+
+        <label for="updated-by-username">Updated by:</label>
+        <input type="text" id="updated-by-username" disabled>
+
+        <label for="updated-at">Updated at:</label>
+        <input type="text" id="updated-at" disabled>
+        <!--  -->
+
+        <label for="x">X:</label>
+        <input class="form-input" type="number" id="x" name="x" required>
+
+        <label for="y">Y:</label>
+        <input class="form-input" type="number" id="y" name="y" required>
+
+        <label for="z">Z:</label>
+        <input class="form-input" type="number" id="z" name="z" required>
+
+        <button class="form-input button button-default" type="submit">Update Location</button>
+
+        <button class="form-input button button-delete" id="button-delete" type="button">Delete Location</button>
+    </form>
+
+</body>
+</html>

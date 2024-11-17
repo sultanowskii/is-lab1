@@ -11,10 +11,6 @@ function sortWithPreferenceToId(strings) {
 
 export function renderTable(data, containerId, sampleObject, resourcePath) {
     const container = document.getElementById(containerId);
-    if (!container) {
-        console.error(`Container with id "${containerId}" not found.`);
-        return;
-    }
 
     // Create the table element
     const table = document.createElement("table");

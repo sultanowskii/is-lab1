@@ -6,23 +6,18 @@ export function validateAndGetData() {
     if (name.length == 0) {
         throw "Name must not be empty";
     }
-    let eyeColor = document.getElementById("eye-color").value;
-    let hairColor = document.getElementById("hair-color").value;
-    let locationId = parseInt(document.getElementById("location-id").value, 10);
-    if (locationId < 0) {
-        throw "Group admin ID must be a positive integer";
+    if (name.length > 694) {
+        throw "Name is too long";
     }
-    let height = parseInt(document.getElementById("height").value, 10);
-    if (height < 1) {
-        throw "Height must be >=1";
-    }
+    let x = parseInt(document.getElementById("x").value, 10);
+    let y = parseInt(document.getElementById("y").value, 10);
+    let z = parseInt(document.getElementById("z").value, 10);
 
     return {
         name: name,
-        eyeColor: eyeColor,
-        hairColor: hairColor,
-        locationId: locationId,
-        height: height,
+        x: x,
+        y: y,
+        z: z,
     };
 }
 
@@ -35,7 +30,7 @@ function sendForm() {
         return;
     }
 
-    fetch("/api/persons", {
+    fetch("/api/locations", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -47,9 +42,9 @@ function sendForm() {
         response.json()
         .then(responseData => {
             if (!response.ok) {
-                throw responseData.message || "Failed to create Person"
+                throw responseData.message || "Failed to create Location"
             }
-            window.location.href = `/persons/${responseData.id}`
+            window.location.href = `/locations/${responseData.id}`
         })
     })
     .catch(err => {
@@ -58,7 +53,7 @@ function sendForm() {
 }
 
 
-document.getElementById("person-form").onsubmit = (e) => {
+document.getElementById("location-form").onsubmit = (e) => {
     e.preventDefault();
     sendForm();
 };

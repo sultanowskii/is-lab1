@@ -61,8 +61,6 @@ function sendForm() {
         return;
     }
 
-    console.log("Submitting Data:", JSON.stringify(data, null, 2));
-
     fetch("/api/study-groups", {
         method: "POST",
         headers: {
