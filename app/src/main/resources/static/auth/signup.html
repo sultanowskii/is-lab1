@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <script src="/js/signin.js" defer type="module"></script>
+    <title>Sign Up Page</title>
+    <script src="/auth/js/signup.js" defer type="module"></script>
 </head>
 <body>
     <div class="container">
-        <div class="login-form">
-            <h1>Login</h1>
+        <div class="signup-form">
+            <h1>Sign Up</h1>
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" placeholder="Enter your username">
@@ -19,7 +19,14 @@
                 <input type="password" id="password" placeholder="Enter your password">
             </div>
             <div class="form-group">
-                <button id="login-button">Login</button>
+                <label for="user-type">User type:</label>
+                <select id="user-type">
+                    <option value="USER" selected>User</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button id="signup-button">Sign Up</button>
             </div>
             <div id="error-message" class="error-message" style="display: none;"></div>
         </div>

@@ -1,7 +1,9 @@
-import { renderTable, flattenObjects, flattenObject } from "/js/table.js"
-import { showErrorMessage } from "/js/error.js"
+import { renderTable, flattenObjects, flattenObject } from "/common/js/table.js"
+import { showErrorMessage } from "/common/js/error.js"
+import { getCookie } from "/common/js/cookie.js"
 
-var pageNumber = 0;
+var pageNumber = 1;
+var totalPages = 1;
 
 const sampleObject = flattenObject({
     "owner": {
@@ -57,7 +59,8 @@ function buildQueryParams() {
         throw "Page size must a non-negative number.";
     }
 
-    let params = `page=${pageNumber}&size=${pageSize}`;
+    const pageIndex = pageNumber - 1;
+    let params = `page=${pageIndex}&size=${pageSize}`;
 
     const sortFields = getSelectedSortFields();
     sortFields.forEach((field) => {
@@ -75,37 +78,44 @@ function buildQueryParams() {
     return params;
 }
 
-async function fetchAndRenderStudyGroups() {
-    var params;
+function fetchAndRenderStudyGroups() {
+    let params;
     try {
         params = buildQueryParams();
     } catch (e) {
         showErrorMessage(e);
+        return;
     }
 
-    const response = await fetch(
+    fetch(
         `/api/study-groups?${params}`,
         {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": `Bearer ${getCookie("authToken")}`,
             },
         },
-    );
+    )
+    .then(response => {
+        response.json()
+        .then(responseData => {
+            if (!response.ok) {
+                showErrorMessage(responseData.message || "Failed to fetch study groups.");
+                return;
+            }
 
-    if (!response.ok) {
-        const errorData = await response.json();
-        showErrorMessage(errorData.message || "Fetching study groups failed.");
-        return;
-    }
+            const studyGroups = responseData.content
+            const flattenedStudyGroups = flattenObjects(studyGroups);
+            totalPages = responseData.page.totalPages;
 
-    const data = await response.json();
-    const studyGroups = data.content
-    const flattenedStudyGroups = flattenObjects(studyGroups);
-
-    renderTable(flattenedStudyGroups, "table-container", sampleObject);
+            renderTable(flattenedStudyGroups, "table-container", sampleObject, "/study-groups");
+        })
+    })
+    .catch(err => {
+        showErrorMessage(err.message);
+    });
 }
-
 
 function updatePageNumberTextContent() {
     document.getElementById("page-number-text").textContent = `Page #${pageNumber}`
@@ -132,15 +142,18 @@ function setUpdatePageTriggers() {
 }
 
 document.getElementById("previous-page").onclick = (event) => {
-    if (pageNumber <= 0) {
+    if (pageNumber <= 1) {
         return;
     }
     pageNumber--;
     updatePage();
 };
 
+
 document.getElementById("next-page").onclick = (event) => {
-    // TODO: уметь знать максимальную страницу
+    if (pageNumber >= totalPages) {
+        return;
+    }
     pageNumber++;
     updatePage();
 };

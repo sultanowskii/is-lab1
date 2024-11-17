@@ -2,6 +2,8 @@ package com.lab1.studygroups;
 
 import java.util.List;
 
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -24,4 +26,8 @@ public interface StudyGroupRepository extends CRUDRepository<StudyGroup> {
 
     @Query(value = "SELECT * FROM change_study_group_form_of_education_to(:id, :form_of_education)", nativeQuery = true)
     StudyGroup changeFormOfEducationTo(@Param("id") int id, @Param("form_of_education") String formOfEducation);
+
+    @Override
+    @EntityGraph(attributePaths = { "owner", "updatedBy" })
+    List<StudyGroup> findAll(Specification<StudyGroup> spec);
 }

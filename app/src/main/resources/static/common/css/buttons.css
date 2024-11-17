@@ -1,0 +1,24 @@
+.button {
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+.button-default {
+    background-color: #007bff;
+}
+
+.button-default:hover {
+    background-color: #0056b3;
+}
+
+.button-delete {
+    background-color: #d40000;
+}
+
+.button-delete:hover {
+    background-color: #9e0000;
+}

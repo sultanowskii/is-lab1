@@ -9,7 +9,7 @@ function sortWithPreferenceToId(strings) {
     return tmp;
 }
 
-export function renderTable(data, containerId, sampleObject) {
+export function renderTable(data, containerId, sampleObject, resourcePath) {
     const container = document.getElementById(containerId);
     if (!container) {
         console.error(`Container with id "${containerId}" not found.`);
@@ -47,9 +47,14 @@ export function renderTable(data, containerId, sampleObject) {
 
         headers.forEach(header => {
             const td = document.createElement("td");
-            td.textContent = row[header];
             td.style.border = "1px solid #ddd";
             td.style.padding = "8px";
+            if (header == "id") {
+                const id = row[header];
+                td.innerHTML = `<a href="${resourcePath}/${id}">${id}</a>`;
+            } else {
+                td.textContent = row[header];
+            }
             tr.appendChild(td);
         });
 
@@ -58,13 +63,12 @@ export function renderTable(data, containerId, sampleObject) {
 
     table.appendChild(tbody);
 
-    // Clear existing content and append the new table
     container.innerHTML = "";
     container.appendChild(table);
 }
 
 export function flattenObjects(array) {
-    return array.map(flattenObject);
+    return array.map((v) => flattenObject(v));
 }
 
 export function flattenObject(obj, parentKey = "") {

@@ -1,0 +1,7 @@
+.table-navigation-block {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    gap: 0.5em;
+}

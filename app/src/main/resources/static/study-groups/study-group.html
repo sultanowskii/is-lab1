@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Study Group</title>
+    <link rel="stylesheet" href="/common/css/object.css">
+    <link rel="stylesheet" href="/common/css/buttons.css">
+    <script src="/study-groups/js/study-group.js" defer type="module"></script>
+</head>
+<body>
+    <h1>Study Group</h1>
+    <a href="/study-groups">&lt; &lt; Back to list</a>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+
+    <form id="study-group-form">
+        <label for="name">Name:</label>
+        <input class="form-input" type="text" id="name" name="name" required placeholder="Enter name">
+
+        <!-- read-only ownership fields -->
+        <label for="owner-username">Owner username:</label>
+        <input type="text" id="owner-username" disabled>
+
+        <label for="created-at">Created at:</label>
+        <input type="text" id="created-at" disabled>
+
+        <label for="updated-by-username">Updated by:</label>
+        <input type="text" id="updated-by-username" disabled>
+
+        <label for="updated-at">Updated at:</label>
+        <input type="text" id="updated-at" disabled>
+        <!--  -->
+
+        <label for="x">Coordinates - X:</label>
+        <input class="form-input" type="number" id="x" name="coordinates.x" required placeholder="Enter X coordinate">
+
+        <label for="y">Coordinates - Y:</label>
+        <input class="form-input" type="number" id="y" name="coordinates.y" required placeholder="Enter Y coordinate">
+
+        <label for="students-count">Students Count:</label>
+        <input class="form-input" type="number" id="students-count" name="students-count" required min="1" placeholder="Enter number of students">
+
+        <label for="expelled-students">Expelled Students:</label>
+        <input class="form-input" type="number" id="expelled-students" name="expelled-students" required min="1" placeholder="Enter number of expelled students">
+
+        <label for="transferred-students">Transferred Students:</label>
+        <input class="form-input" type="number" id="transferred-students" name="transferred-students" required min="1" placeholder="Enter number of transferred students">
+
+        <label for="form-of-education">Form of Education:</label>
+        <select class="form-input" id="form-of-education" name="form-of-education" required>
+            <option value="DISTANCE_EDUCATION" selected>Distance Education</option>
+            <option value="FULL_TIME_EDUCATION">Full-time Education</option>
+            <option value="EVENING_CLASSES">Evening Classes</option>
+        </select>
+
+        <label for="should-be-expelled">Should Be Expelled:</label>
+        <input class="form-input" type="number" id="should-be-expelled" name="should-be-expelled" required min="1" placeholder="Enter number of should-be-expelled students">
+
+        <label for="average-mark">Average Mark:</label>
+        <input class="form-input" type="number" id="average-mark" name="average-mark" required min="1" placeholder="Enter average mark">
+
+        <label for="semester-enum">Semester:</label>
+        <select class="form-input" id="semester-enum" name="semester-enum" required>
+            <option value="SECOND" selected>Second</option>
+            <option value="FOURTH">Fourth</option>
+            <option value="EIGHTH">Eight</option>
+        </select>
+
+        <label for="group-admin-id">Group Admin ID:</label>
+        <input class="form-input" type="number" id="group-admin-id" name="group-admin-id" required min="1" placeholder="Enter Group Admin ID">
+
+        <button class="form-input button button-default" type="submit">Update Study Group</button>
+
+        <button class="form-input button button-delete" id="button-delete" type="button">Delete Study Group</button>
+    </form>
+
+</body>
+</html>
