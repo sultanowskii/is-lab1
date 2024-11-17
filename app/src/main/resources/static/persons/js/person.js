@@ -1,13 +1,13 @@
 import { getCookie } from "/common/js/cookie.js"
 import { showErrorMessage } from "/common/js/error.js"
-import { validateAndGetStudyGroupData } from "/study-groups/js/study-group-create.js"
+import { validateAndGetData } from "/persons/js/person-create.js"
 
 var objectId;
 
 function loadObjectIdFromPath() {
     const path = window.location.pathname;
 
-    const match = path.match(/^\/study-groups\/(\d+)$/);
+    const match = path.match(/^\/persons\/(\d+)$/);
 
     if (!match) {
         showErrorMessage("URL seems to be broken. Try to go back ");
@@ -29,7 +29,7 @@ function disableEditing(disable = true) {
 }
 
 function loadObject() {
-    fetch(`/api/study-groups/${objectId}`, {
+    fetch(`/api/persons/${objectId}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -38,13 +38,13 @@ function loadObject() {
     })
     .then(response => {
         if (response.status == 404) {
-            document.getElementById("study-group-form").hidden = true;
+            document.getElementById("persons-form").hidden = true;
         }
 
         response.json()
         .then(responseData => {
             if (!response.ok) {
-                showErrorMessage(responseData.message || "Failed to fetch Study Group");
+                showErrorMessage(responseData.message || "Failed to fetch Person");
                 return;
             }
 
@@ -54,20 +54,14 @@ function loadObject() {
             }
 
             document.getElementById("name").value = responseData.name;
-            document.getElementById("owner-username").value = responseData?.username || "";
+            document.getElementById("owner-username").value = responseData.owner?.username || "";
             document.getElementById("created-at").value = responseData.createdAt;
             document.getElementById("updated-by-username").value = responseData.updatedBy?.username || "";
             document.getElementById("updated-at").value = responseData.updatedAt;
-            document.getElementById("x").value = responseData.coordinates.x;
-            document.getElementById("y").value = responseData.coordinates.y;
-            document.getElementById("students-count").value = responseData.studentsCount;
-            document.getElementById("expelled-students").value = responseData.expelledStudents;
-            document.getElementById("transferred-students").value = responseData.transferredStudents;
-            document.getElementById("form-of-education").value = responseData.formOfEducation;
-            document.getElementById("should-be-expelled").value = responseData.shouldBeExpelled;
-            document.getElementById("average-mark").value = responseData.averageMark;
-            document.getElementById("semester-enum").value = responseData.semesterEnum;
-            document.getElementById("group-admin-id").value = responseData.groupAdminId;
+            document.getElementById("eye-color").value = responseData.eyeColor;
+            document.getElementById("hair-color").value = responseData.hairColor;
+            document.getElementById("location-id").value = responseData.locationId;
+            document.getElementById("height").value = responseData.height;
         })
     })
     .catch(err => {
@@ -76,7 +70,7 @@ function loadObject() {
 }
 
 function deleteObject() {
-    fetch(`/api/study-groups/${objectId}`, {
+    fetch(`/api/persons/${objectId}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -87,11 +81,11 @@ function deleteObject() {
         response.json()
         .then(responseData => {
             if (!response.ok) {
-                showErrorMessage(responseData.message || "Failed to delete Study Group");
+                showErrorMessage(responseData.message || "Failed to delete Person");
                 return;
             }
 
-            window.location.href = "/study-groups"
+            window.location.href = "/persons"
         })
     })
     .catch(err => {
@@ -102,13 +96,13 @@ function deleteObject() {
 function sendForm() {
     let data;
     try {
-        data = validateAndGetStudyGroupData();
+        data = validateAndGetData();
     } catch (err) {
         showErrorMessage(err);
         return;
     }
 
-    fetch(`/api/study-groups/${objectId}`, {
+    fetch(`/api/persons/${objectId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -120,10 +114,10 @@ function sendForm() {
         response.json()
         .then(responseData => {
             if (!response.ok) {
-                showErrorMessage(responseData.message || "Failed to update Study Group");
+                showErrorMessage(responseData.message || "Failed to update Person");
                 return;
             }
-            window.location.href = `/study-groups/${responseData.id}`
+            window.location.href = `/persons/${responseData.id}`
         })
     })
     .catch(err => {
@@ -131,7 +125,7 @@ function sendForm() {
     });
 }
 
-document.getElementById("study-group-form").onsubmit = (e) => {
+document.getElementById("person-form").onsubmit = (e) => {
     e.preventDefault();
     sendForm();
 };

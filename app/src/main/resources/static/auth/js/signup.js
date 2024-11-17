@@ -42,4 +42,6 @@ function signup() {
     });
 }
 
-document.getElementById("signup-button").onlick = signup;
+document.getElementById("signup-button").onclick = (e) => {
+    signup();
+};

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Person</title>
+    <link rel="stylesheet" href="/common/css/object.css">
+    <link rel="stylesheet" href="/common/css/buttons.css">
+    <script src="/persons/js/person-create.js" defer type="module"></script>
+</head>
+<body>
+    <h1>Create Person</h1>
+    <a href="/persons">&lt; &lt; Back to list</a>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+
+    <form id="person-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter name">
+
+        <label for="eye-color">Eye color:</label>
+        <select class="form-input" id="eye-color" name="eye-color" required>
+            <option value="YELLOW" selected>Yellow</option>
+            <option value="ORANGE">Orange</option>
+            <option value="WHITE">White</option>
+        </select>
+
+        <label for="hair-color">Hair color:</label>
+        <select class="form-input" id="hair-color" name="hair-color" required>
+            <option value="YELLOW" selected>Yellow</option>
+            <option value="ORANGE">Orange</option>
+            <option value="WHITE">White</option>
+        </select>
+
+        <label for="location-id">Location ID:</label>
+        <input class="form-input" type="number" id="location-id" name="location-id" required min="1">
+
+        <label for="height">Height:</label>
+        <input class="form-input" type="number" id="height" name="height" required min="1">
+
+        <button class="button button-default" type="submit">Create Person</button>
+    </form>
+</body>
+</html>

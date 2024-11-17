@@ -41,4 +41,6 @@ function signin() {
     });
 }
 
-document.getElementById("signin-button").onlick = signin;
+document.getElementById("signin-button").onclick = (e) => {
+    signin();
+};
