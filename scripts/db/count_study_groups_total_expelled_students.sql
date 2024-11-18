@@ -1,4 +1,4 @@
-DROP FUNCTION count_study_groups_total_expelled_students;
+DROP FUNCTION IF EXISTS count_study_groups_total_expelled_students;
 
 CREATE OR REPLACE FUNCTION count_study_groups_total_expelled_students()
 RETURNS INTEGER

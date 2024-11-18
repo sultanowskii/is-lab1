@@ -1,4 +1,4 @@
-DROP FUNCTION find_study_groups_with_name_like;
+DROP FUNCTION IF EXISTS find_study_groups_with_name_like;
 
 CREATE OR REPLACE FUNCTION find_study_groups_with_name_like(substr TEXT)
 RETURNS SETOF study_group

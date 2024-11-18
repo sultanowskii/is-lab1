@@ -1,4 +1,4 @@
-DROP FUNCTION delete_study_groups_with_average_mark;
+DROP FUNCTION IF EXISTS delete_study_groups_with_average_mark;
 
 CREATE OR REPLACE FUNCTION delete_study_groups_with_average_mark(target_value INTEGER)
 RETURNS bool

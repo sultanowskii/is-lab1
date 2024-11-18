@@ -1,4 +1,4 @@
-DROP FUNCTION change_study_group_form_of_education_to;
+DROP FUNCTION IF EXISTS change_study_group_form_of_education_to;
 
 CREATE OR REPLACE FUNCTION change_study_group_form_of_education_to(target_id INTEGER, new_form_of_education TEXT)
 RETURNS study_group
