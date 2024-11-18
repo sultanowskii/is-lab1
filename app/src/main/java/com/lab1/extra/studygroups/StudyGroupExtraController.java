@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +28,7 @@ public class StudyGroupExtraController {
 
     @PostMapping("/delete-with-average-mark")
     @Operation(summary = "Delete all study groups with specified averageMark", security = @SecurityRequirement(name = "bearerTokenAuth"))
-    public ResponseEntity<Void> deleteWithAverageMark(StudyGroupDeleteWithAverageMarkRequestDto dto) {
+    public ResponseEntity<Void> deleteWithAverageMark(@RequestBody StudyGroupDeleteWithAverageMarkRequestDto dto) {
         studyGroupExtraService.deleteWithAverageMark(dto);
         return ResponseEntity.noContent().build();
     }
@@ -55,7 +56,7 @@ public class StudyGroupExtraController {
 
     @PostMapping("/change-form-of-education")
     @Operation(summary = "Change form of education of a study group", security = @SecurityRequirement(name = "bearerTokenAuth"))
-    public ResponseEntity<StudyGroupDto> changeFormOfEducationTo(StudyGroupChangeFormOfEducationToRequestDto dto) {
+    public ResponseEntity<StudyGroupDto> changeFormOfEducationTo(@RequestBody StudyGroupChangeFormOfEducationToRequestDto dto) {
         final var result = studyGroupExtraService.changeFormOfEducationTo(dto);
         return ResponseEntity.ok(result);
     }

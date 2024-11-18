@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete with average mark</title>
+    <link rel="stylesheet" href="/common/css/object.css">
+    <link rel="stylesheet" href="/common/css/buttons.css">
+    <script src="/extra/js/delete-with-average-mark.js" defer type="module"></script>
+</head>
+<body>
+    <h1>Delete with average mark</h1>
+    <a href="/extra/study-groups">&lt; &lt; Back to list</a>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+
+    <form id="form">
+        <label for="average-mark">Average mark:</label>
+        <input class="form-input" type="number" id="average-mark" name="average-mark" required  min="1">
+
+        <button class="form-input button button-delete" id="button-delete" type="button">Delete</button>
+    </form>
+</body>
+</html>

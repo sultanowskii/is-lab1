@@ -1,40 +1,10 @@
-import { renderTable, flattenObjects, flattenObject } from "/common/js/table.js"
+import { renderTable, flattenObjects} from "/common/js/table.js"
 import { showErrorMessage } from "/common/js/error.js"
 import { getCookie } from "/common/js/cookie.js"
+import { sampleObject } from "/study-groups/js/sample.js";
 
 var pageNumber = 1;
 var totalPages = 1;
-
-const sampleObject = flattenObject({
-    "owner": {
-        "id": 0,
-        "username": "",
-        "type": "",
-    },
-    "createdAt": "",
-    "updatedBy": {
-        "id": 0,
-        "username": "",
-        "type": "",
-    },
-    "updatedAt": "",
-    "id": 0,
-    "name": "b1234",
-    "coordinates": {
-        "x": 0,
-        "y": 0,
-    },
-    "creationDate": "",
-    "studentsCount": 1,
-    "expelledStudents": 1,
-    "transferredStudents": 1,
-    "formOfEducation": "FULL_TIME_EDUCATION",
-    "shouldBeExpelled": 1,
-    "averageMark": 1,
-    "semesterEnum": "SECOND",
-    "groupAdminId": 0,
-});
-
 
 function getSelectedSortFields() {
     const checkboxSection = document.getElementById("sort-section");

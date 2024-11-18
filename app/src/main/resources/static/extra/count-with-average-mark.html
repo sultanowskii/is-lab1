@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count with average mark</title>
+    <link rel="stylesheet" href="/common/css/object.css">
+    <link rel="stylesheet" href="/common/css/buttons.css">
+    <script src="/extra/js/count-with-average-mark.js" defer type="module"></script>
+</head>
+<body>
+    <h1>Count with average mark</h1>
+    <a href="/extra/study-groups">&lt; &lt; Back to list</a>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+
+    <form id="form">
+        <label for="average-mark">Average mark:</label>
+        <input class="form-input" type="number" id="average-mark" name="average-mark" required  min="1">
+
+        <button class="form-input button button-default" id="button-count" type="button">Count</button>
+
+        <div id="result"></div>
+    </form>
+
+</body>
+</html>

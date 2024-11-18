@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find with name like</title>
+    <link rel="stylesheet" href="/common/css/object.css">
+    <link rel="stylesheet" href="/common/css/buttons.css">
+    <script src="/extra/js/find-with-name-like.js" defer type="module"></script>
+</head>
+<body>
+    <h1>Find with name like</h1>
+    <a href="/extra/study-groups">&lt; &lt; Back to list</a>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+
+    <form id="form">
+        <label for="name-part">Name part:</label>
+        <input class="form-input" type="text" id="name-part" name="name-part" required>
+
+        <button class="form-input button button-default" id="button-find" type="button">Find</button>
+    </form>
+
+    <div id="table-container"></div>
+</body>
+</html>

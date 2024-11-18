@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change form of education</title>
+    <link rel="stylesheet" href="/common/css/object.css">
+    <link rel="stylesheet" href="/common/css/buttons.css">
+    <script src="/extra/js/change-form-of-education.js" defer type="module"></script>
+</head>
+<body>
+    <h1>Change form of education</h1>
+    <a href="/extra/study-groups">&lt; &lt; Back to list</a>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+
+    <form id="form">
+        <label for="id">ID:</label>
+        <input class="form-input" type="number" id="id" name="id" required min="1">
+
+        <label for="form-of-education">Form of Education:</label>
+        <select class="form-input" id="form-of-education" name="form-of-education" required>
+            <option value="DISTANCE_EDUCATION" selected>Distance Education</option>
+            <option value="FULL_TIME_EDUCATION">Full-time Education</option>
+            <option value="EVENING_CLASSES">Evening Classes</option>
+        </select>
+
+        <button class="form-input button button-delete" id="button-change" type="button">Change</button>
+    </form>
+</body>
+</html>
