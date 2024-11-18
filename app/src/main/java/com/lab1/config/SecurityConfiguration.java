@@ -26,7 +26,6 @@ import lombok.RequiredArgsConstructor;
 // Конфигурация Security (и в целом auth-часть) написана благодаря:
 // https://habr.com/ru/amp/publications/784508/
 
-// TODO: дописать
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -58,14 +57,15 @@ public class SecurityConfiguration {
                         .requestMatchers("/swagger-ui", "/swagger-ui/**").permitAll();
 
                     request
+                        .requestMatchers("/signin").permitAll()
+                        .requestMatchers("/signup").permitAll()
                         .requestMatchers("/auth/**").permitAll();
-
-
-                    request
-                        .requestMatchers("/**").permitAll();
 
                     request
                         .requestMatchers("/api/**").authenticated();
+
+                    request
+                        .requestMatchers("/**").permitAll();
                 }
             )
             .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

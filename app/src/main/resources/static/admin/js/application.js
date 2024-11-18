@@ -1,14 +1,13 @@
 import { getCookie } from "/common/js/cookie.js"
 import { showErrorMessage } from "/common/js/error.js"
-import { isAdmin } from "/common/js/user.js"
-import { validateAndGetData } from "/locations/js/location-create.js"
+import { errIfNotAdmin } from "/admin/js/admin-check.js"
 
 var objectId;
 
 function loadObjectIdFromPath() {
     const path = window.location.pathname;
 
-    const match = path.match(/^\/locations\/(\d+)$/);
+    const match = path.match(/^\/admin\/applications\/(\d+)$/);
 
     if (!match) {
         showErrorMessage("URL seems to be broken. Try to go back ");
@@ -30,7 +29,7 @@ function disableEditing(disable = true) {
 }
 
 function loadObject() {
-    fetch(`/api/locations/${objectId}`, {
+    fetch(`/api/admin/applications/${objectId}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -39,29 +38,18 @@ function loadObject() {
     })
     .then(response => {
         if (response.status == 404) {
-            document.getElementById("location-form").hidden = true;
+            document.getElementById("application-form").hidden = true;
         }
 
         response.json()
         .then(responseData => {
             if (!response.ok) {
-                showErrorMessage(responseData.message || "Failed to fetch Location");
+                showErrorMessage(responseData.message || "Failed to fetch Application");
                 return;
             }
 
-            let currentUserId = localStorage.getItem("id");
-            if (!isAdmin() && responseData.owner.id != currentUserId) {
-                disableEditing();
-            }
-
-            document.getElementById("name").value = responseData.name;
-            document.getElementById("owner-username").value = responseData.owner?.username || "";
-            document.getElementById("created-at").value = responseData.createdAt;
-            document.getElementById("updated-by-username").value = responseData.updatedBy?.username || "";
-            document.getElementById("updated-at").value = responseData.updatedAt;
-            document.getElementById("x").value = responseData.x;
-            document.getElementById("y").value = responseData.y;
-            document.getElementById("z").value = responseData.z;
+            document.getElementById("user-id").value = responseData.user.id;
+            document.getElementById("user-username").value = responseData.user.username;
         })
     })
     .catch(err => {
@@ -69,9 +57,9 @@ function loadObject() {
     });
 }
 
-function deleteObject() {
-    fetch(`/api/locations/${objectId}`, {
-        method: "DELETE",
+function approve() {
+    fetch(`/api/admin/applications/${objectId}/approve`, {
+        method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${getCookie("authToken")}`,
@@ -81,11 +69,11 @@ function deleteObject() {
         response.json()
         .then(responseData => {
             if (!response.ok) {
-                showErrorMessage(responseData.message || "Failed to delete Location");
+                showErrorMessage(responseData.message || "Failed to approve Application");
                 return;
             }
 
-            window.location.href = "/locations"
+            window.location.href = "/admin/applications"
         })
     })
     .catch(err => {
@@ -93,31 +81,23 @@ function deleteObject() {
     });
 }
 
-function sendForm() {
-    let data;
-    try {
-        data = validateAndGetData();
-    } catch (err) {
-        showErrorMessage(err);
-        return;
-    }
-
-    fetch(`/api/locations/${objectId}`, {
-        method: "PUT",
+function reject() {
+    fetch(`/api/admin/applications/${objectId}/reject`, {
+        method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${getCookie("authToken")}`,
         },
-        body: JSON.stringify(data),
     })
     .then(response => {
         response.json()
         .then(responseData => {
             if (!response.ok) {
-                showErrorMessage(responseData.message || "Failed to update Location");
+                showErrorMessage(responseData.message || "Failed to approve Application");
                 return;
             }
-            window.location.href = `/locations/${responseData.id}`
+
+            window.location.href = "/admin/applications"
         })
     })
     .catch(err => {
@@ -125,14 +105,16 @@ function sendForm() {
     });
 }
 
-document.getElementById("location-form").onsubmit = (e) => {
+document.getElementById("button-approve").onclick = (e) => {
     e.preventDefault();
-    sendForm();
+    approve();
 };
 
-document.getElementById("button-delete").onclick = (e) => {
-    deleteObject();
+document.getElementById("button-reject").onclick = (e) => {
+    e.preventDefault();
+    reject();
 };
 
+errIfNotAdmin();
 loadObjectIdFromPath();
 loadObject();

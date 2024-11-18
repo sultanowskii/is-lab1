@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin application</title>
+    <link rel="stylesheet" href="/common/css/object.css">
+    <link rel="stylesheet" href="/common/css/buttons.css">
+    <script src="/admin/js/application.js" defer type="module"></script>
+</head>
+<body>
+    <h1>Admin application</h1>
+    <a href="/admin/applications">&lt; &lt; Back to list</a>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+
+    <form id="application-form">
+        <label for="user-id">User ID:</label>
+        <input type="text" id="user-id" name="user-id" disabled>
+
+        <label for="user-username">User username:</label>
+        <input type="text" id="user-username" name="user-username" disabled>
+
+        <button class="form-input button button-default" id="button-approve" type="button">Approve</button>
+        <button class="form-input button button-delete" id="button-reject" type="button">Reject</button>
+    </form>
+</body>
+</html>

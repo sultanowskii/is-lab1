@@ -1,13 +1,15 @@
 package com.lab1.admin;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lab1.admin.dto.AdminApplicationCreateDto;
 import com.lab1.admin.dto.AdminApplicationDto;
 import com.lab1.common.error.ValidationException;
+import com.lab1.common.paging.Paginator;
+import com.lab1.common.paging.SmartPage;
 import com.lab1.common.error.PermissionDeniedException;
 import com.lab1.users.UserService;
 import com.lab1.users.UserType;
@@ -58,9 +60,11 @@ public class AdminApplicationService {
         return adminApplicationMapper.toDto(updatedApplication);
     }
 
-    public Page<AdminApplicationDto> getAll(Pageable pageable) {
+    public Page<AdminApplicationDto> getAll(Specification<AdminApplication> specification, Paginator paginator) {
         checkIfAdmin();
-        return adminApplicationRepo.findAll(pageable).map(o -> adminApplicationMapper.toDto(o));
+        final var all = adminApplicationRepo.findAll(specification);
+        final var paged = new SmartPage<>(all, paginator);
+        return paged.map(o -> adminApplicationMapper.toDto(o));
     }
 
     public AdminApplicationDto get(int id) {

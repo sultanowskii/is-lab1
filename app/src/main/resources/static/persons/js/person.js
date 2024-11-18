@@ -1,5 +1,6 @@
 import { getCookie } from "/common/js/cookie.js"
 import { showErrorMessage } from "/common/js/error.js"
+import { isAdmin } from "/common/js/user.js"
 import { validateAndGetData } from "/persons/js/person-create.js"
 
 var objectId;
@@ -38,7 +39,7 @@ function loadObject() {
     })
     .then(response => {
         if (response.status == 404) {
-            document.getElementById("persons-form").hidden = true;
+            document.getElementById("person-form").hidden = true;
         }
 
         response.json()
@@ -49,7 +50,7 @@ function loadObject() {
             }
 
             let currentUserId = localStorage.getItem("id");
-            if (responseData.owner.id != currentUserId) {
+            if (!isAdmin() && responseData.owner.id != currentUserId) {
                 disableEditing();
             }
 

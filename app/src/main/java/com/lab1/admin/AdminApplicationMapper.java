@@ -21,11 +21,9 @@ public abstract class AdminApplicationMapper implements BaseMapper<AdminApplicat
     @Autowired
     protected UserRepository userRepo;
 
-    @Mapping(source = "dto.userId", qualifiedByName = "mapUser", target = "user")
     public abstract AdminApplication toEntity(AdminApplicationDto dto);
     @Mapping(source = "createDto.userId", qualifiedByName = "mapUser", target = "user")
     public abstract AdminApplication toEntityFromCreateDto(AdminApplicationCreateDto createDto);
-    @Mapping(source = "entity.user", qualifiedByName = "mapUserId", target = "userId")
     public abstract AdminApplicationDto toDto(AdminApplication entity);
 
     @Mapping(source = "updateDto.userId", qualifiedByName = "mapUser", target = "user")
@@ -36,14 +34,6 @@ public abstract class AdminApplicationMapper implements BaseMapper<AdminApplicat
         return userRepo
             .findById(userId)
             .orElseThrow(() -> new ValidationException("User with id=" + userId + " not found"));
-    }
-
-    @Named("mapUserId") 
-    protected Integer mapUserId(User user) {
-        if (user == null) {
-            return null;
-        }
-        return user.getId();
     }
 }
 

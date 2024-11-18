@@ -1,5 +1,6 @@
 import { getCookie } from "/common/js/cookie.js"
 import { showErrorMessage } from "/common/js/error.js"
+import { isAdmin } from "/common/js/user.js"
 import { validateAndGetStudyGroupData } from "/study-groups/js/study-group-create.js"
 
 var objectId;
@@ -49,7 +50,7 @@ function loadObject() {
             }
 
             let currentUserId = localStorage.getItem("id");
-            if (responseData.owner.id != currentUserId) {
+            if (!isAdmin() && responseData.owner.id != currentUserId) {
                 disableEditing();
             }
 
