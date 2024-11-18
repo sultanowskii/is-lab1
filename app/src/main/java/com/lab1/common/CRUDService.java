@@ -53,7 +53,7 @@ public class CRUDService<T extends OwnedEntity, TDto, TCreateDto> implements com
     }
 
     public Page<TDto> getAll(Specification<T> specification, Paginator paginator) {
-        final var allObject = repo.findAll(specification);
+        final var allObject = repo.findAll(specification, paginator.getSort());
         final var paged = new SmartPage<>(allObject, paginator);
         return paged.map(o -> mapper.toDto(o));
     }

@@ -24,6 +24,11 @@ public abstract class PaginationMapper {
         if (fieldList == null) {
             return Sort.unsorted();
         }
-        return Sort.by(Sort.Direction.DESC, fieldList.toArray(String[]::new));
+
+        Sort sort = Sort.unsorted();
+        for (String field : fieldList) {
+            sort = sort.and(Sort.by(Sort.Direction.ASC, field));
+        }
+        return sort;
     }
 }

@@ -43,6 +43,7 @@ public class CRUDController<T extends OwnedEntity, TDto, TCreateDto> {
             spec = specBuilder.build(searchParamsDto);
         }
         final var paginator = paginationMapper.toEntity(pagiationDto);
+        System.out.println(paginator.getSort());
         return ResponseEntity.ok().body(service.getAll(spec, paginator));
     }
 
