@@ -1,32 +1,40 @@
-package com.lab1.common;
+package com.lab1.imports;
+
+import java.util.Set;
 
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Component;
 
 import com.lab1.common.dto.SearchParamsDto;
 import com.lab1.common.error.ValidationException;
 import com.lab1.users.User;
 
-public abstract class CRUDSpecification<T extends OwnedEntity> {
-    public abstract boolean isFieldValid(String fieldName);
+@Component
+public class ImportSpecification {
+    private static final Set<String> VALID_SEARCH_FIELDS = Set.of("status");
 
-    public Specification<T> build(User user) throws ValidationException {
+    private boolean isFieldValid(String fieldName) {
+        return VALID_SEARCH_FIELDS.contains(fieldName);
+    }
+
+    public Specification<Import> build(User user) throws ValidationException {
         if (user.isAdmin()) {
             return null;
         }
-        return withOwner(user);
+        return withPerformer(user);
     }
 
-    public Specification<T> buildWithSearchParams(User user, SearchParamsDto searchParamsDto) throws ValidationException {
+    public Specification<Import> buildWithSearchParams(User user, SearchParamsDto searchParamsDto) throws ValidationException {
         if (user.isAdmin()) {
             return withFieldContaining(searchParamsDto.getSearchFieldName(), searchParamsDto.getSearchString());
         }
 
         return Specification
             .where(withFieldContaining(searchParamsDto.getSearchFieldName(), searchParamsDto.getSearchString()))
-            .and(withOwner(user));
+            .and(withPerformer(user));
     }
 
-    public Specification<T> withFieldContaining(String fieldName, String substring) throws ValidationException {
+    public Specification<Import> withFieldContaining(String fieldName, String substring) throws ValidationException {
         if (!isFieldValid(fieldName)) {
             throw new ValidationException("Field '" + fieldName + "' is not a valid searchable field");
         }
@@ -36,9 +44,9 @@ public abstract class CRUDSpecification<T extends OwnedEntity> {
         };
     }
 
-    public Specification<T> withOwner(User user) {
+    public Specification<Import> withPerformer(User user) {
         return (root, query, builder) -> {
-            return builder.equal(root.get("owner"), user);
+            return builder.equal(root.get("performer_id"), user.getId());
         };
     }
 }
