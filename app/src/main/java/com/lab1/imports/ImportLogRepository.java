@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ImportRepository extends JpaRepository<Import, Integer>, JpaSpecificationExecutor<Import> {
+public interface ImportLogRepository extends JpaRepository<ImportLog, Integer>, JpaSpecificationExecutor<ImportLog> {
 }

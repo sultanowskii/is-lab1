@@ -12,7 +12,8 @@ import com.lab1.common.OwnedEntity;
 @Setter
 public class Person extends OwnedEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_seq")
+    @SequenceGenerator(name = "person_seq", sequenceName = "person_seq", allocationSize = 32)
     private int id;
 
     @NotBlank

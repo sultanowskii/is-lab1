@@ -14,7 +14,8 @@ import lombok.*;
 @AllArgsConstructor
 public class StudyGroup extends OwnedEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "study_group_seq")
+    @SequenceGenerator(name = "study_group_seq", sequenceName = "study_group_seq", allocationSize = 32)
     private int id;
 
     @NotBlank

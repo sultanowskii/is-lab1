@@ -1,6 +1,7 @@
 package com.lab1.common;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
@@ -21,16 +22,37 @@ public class CRUDService<T extends OwnedEntity, TDto, TCreateDto> implements com
     protected final CRUDRepository<T> repo;
     protected final BaseMapper<T, TDto, TCreateDto> mapper;
 
+
+    protected void setPreCreateDetails(T obj) {
+        obj.setOwner(userService.getCurrentUser());
+        obj.setCreatedAt(ZonedDateTime.now());
+    }
+
     @Transactional
     public TDto create(TCreateDto form) {
         var obj = mapper.toEntityFromCreateDto(form);
 
-        obj.setOwner(userService.getCurrentUser());
-        obj.setCreatedAt(ZonedDateTime.now());
+        setPreCreateDetails(obj);
         
         var createdObj = repo.save(obj);
 
         return mapper.toDto(createdObj);
+    }
+
+    @Transactional
+    public List<TDto> createAll(List<TCreateDto> forms) {
+        var objs = forms
+            .stream()
+            .map(form -> mapper.toEntityFromCreateDto(form))
+            .toList();
+        objs.forEach(this::setPreCreateDetails);
+
+        var createdObjs = repo.saveAll(objs);
+
+        return createdObjs
+            .stream()
+            .map(mapper::toDto)
+            .toList();
     }
 
     @Transactional

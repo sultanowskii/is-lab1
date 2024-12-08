@@ -15,7 +15,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class AdminApplication implements com.lab1.common.Entity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin_application_seq")
+    @SequenceGenerator(name = "admin_application_seq", sequenceName = "admin_application_seq", allocationSize = 1)
     private int id;
 
     @OneToOne(cascade = CascadeType.ALL)

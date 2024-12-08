@@ -10,9 +10,10 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Import implements com.lab1.common.Entity {
+public class ImportLog implements com.lab1.common.Entity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "import_log_seq")
+    @SequenceGenerator(name = "import_log_seq", sequenceName = "import_log_seq", allocationSize = 1)
     private int id;
     
     @ManyToOne

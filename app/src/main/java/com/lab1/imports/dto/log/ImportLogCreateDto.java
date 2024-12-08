@@ -1,4 +1,4 @@
-package com.lab1.imports.dto;
+package com.lab1.imports.dto.log;
 
 import com.lab1.imports.Status;
 
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ImportCreateDto {
+public class ImportLogCreateDto {
     @NotNull
     private int createdCount;
 

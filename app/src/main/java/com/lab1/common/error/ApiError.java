@@ -14,14 +14,14 @@ public class ApiError {
     private String message;
     private List<String> errors;
 
-    public ApiError(final HttpStatus status, final String message, final String error) {
+    public ApiError(HttpStatus status, String message, String error) {
         super();
         this.status = status;
         this.message = message;
         errors = List.of(error);
     }
 
-    public void setError(final String error) {
+    public void setError(String error) {
         errors = List.of(error);
     }
 }

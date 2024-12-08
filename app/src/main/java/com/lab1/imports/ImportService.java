@@ -1,44 +1,71 @@
 package com.lab1.imports;
 
+import java.util.stream.IntStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.lab1.common.error.NotFoundException;
-import com.lab1.common.paging.Paginator;
-import com.lab1.common.paging.SmartPage;
-import com.lab1.imports.dto.ImportCreateDto;
-import com.lab1.imports.dto.ImportDto;
-import com.lab1.users.UserService;
+import com.lab1.imports.dto.StudyGroupsImportDto;
+import com.lab1.locations.LocationService;
+import com.lab1.persons.PersonService;
+import com.lab1.studygroups.StudyGroupService;
 
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Service
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class ImportService {
     @Autowired
-    protected final UserService userService;
-    private final ImportRepository repository;
-    protected final ImportMapper mapper;
+    LocationService locationService;
+    @Autowired
+    PersonService personService;
+    @Autowired
+    StudyGroupService studyGroupService;
+    @Autowired
+    ImportMapper mapper;
 
-    public ImportDto create(ImportCreateDto createDto) {
-        var obj = mapper.toEntityFromCreateDto(createDto);
-        obj.setPerformer(userService.getCurrentUser());
-        var createdObj = repository.save(obj);
-        return mapper.toDto(createdObj);
-    }
+    @Transactional
+    public void createBulk(StudyGroupsImportDto dto) {
+        var studentGroupImportDtos = dto.getObjects();
 
-    public ImportDto get(int id) {
-        var obj = repository
-            .findById(id)
-            .orElseThrow(() -> new NotFoundException("Import with id=" + id + " not found"));
-        return mapper.toDto(obj);
-    }
+        var locationImportDtos = studentGroupImportDtos.stream().map(sg -> sg.getGroupAdmin().getLocation()).toList();
+        var createdLocations = locationService.createAll(
+            locationImportDtos
+                .stream()
+                .map(l -> mapper.toLocationCreateDto(l))
+                .toList()
+        );
 
-    public Page<ImportDto> getAll(Specification<Import> specification, Paginator paginator) {
-        final var allObjects = repository.findAll(specification, paginator.getSort());
-        final var paged = new SmartPage<>(allObjects, paginator);
-        return paged.map(o -> mapper.toDto(o));
+        var personCreateDtos = IntStream
+        .range(0, createdLocations.size())
+        .mapToObj(
+            i -> {
+                var personImportDto = studentGroupImportDtos.get(i).getGroupAdmin();
+
+                var personCreateDto = mapper.toPersonCreateDto(personImportDto);
+                personCreateDto.setLocationId(createdLocations.get(i).getId());
+
+                return personCreateDto;
+            }
+        )
+        .toList();
+        var createdPersons = personService.createAll(personCreateDtos);
+
+        var studyGroupCreateDtos = IntStream
+        .range(0, createdPersons.size())
+        .mapToObj(
+            i -> {
+                var studyGroupImportDto = studentGroupImportDtos.get(i);
+
+                var studyGroupCreateDto = mapper.toStudyGroupCreateDto(studyGroupImportDto);
+                studyGroupCreateDto.setGroupAdminId(createdPersons.get(i).getId());
+
+                return studyGroupCreateDto;
+            }
+        )
+        .toList();
+        studyGroupService.createAll(studyGroupCreateDtos);
     }
 }

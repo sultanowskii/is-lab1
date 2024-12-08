@@ -1,7 +1,6 @@
 package com.lab1.studygroups;
 
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,17 +24,9 @@ public class StudyGroupService extends CRUDService<StudyGroup, StudyGroupDto, St
     }
 
     @Override
-    @Transactional
-    public StudyGroupDto create(StudyGroupCreateDto form) {
-        var studyGroup = mapper.toEntityFromCreateDto(form);
-
-        studyGroup.setOwner(userService.getCurrentUser());
-        studyGroup.setCreatedAt(ZonedDateTime.now());
+    protected void setPreCreateDetails(StudyGroup studyGroup) {
+        super.setPreCreateDetails(studyGroup);
         studyGroup.setCreationDate(LocalDateTime.now());
-
-        var createdStudyGroup = repo.save(studyGroup);
-
-        return mapper.toDto(createdStudyGroup);
     }
 
     @Override
