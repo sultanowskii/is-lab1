@@ -1,5 +1,6 @@
 package com.lab1.common.error;
 
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
 
 import java.util.ArrayList;
@@ -88,7 +89,7 @@ public class Lab1ExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
-    @ExceptionHandler({ ValidationException.class })
+    @ExceptionHandler({ ValidationException.class, ConstraintViolationException.class })
     public ResponseEntity<Object> handleValidationException(Exception ex) {
         final ApiError apiError = new ApiError(
             HttpStatus.BAD_REQUEST,
