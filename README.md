@@ -82,3 +82,89 @@ jedis.close();
 ```
 
 И действительно, после закрытия ресурса во всех местах использования redis, ошибок при работе с StudyGroup более не возникало.
+
+---
+
+```java
+@Override
+@Transactional
+public LocationDto create(LocationCreateDto form) {
+    String name = form.getName();
+    if (locationWithName(name).isPresent()) {
+        throw new ValidationException("Location with name=" + name + " already exists");
+    }
+
+    return super.create(form);
+}
+
+@Override
+@Transactional
+public LocationDto update(int id, LocationCreateDto form) {
+    String name = form.getName();
+    var maybeLocation = locationWithName(name);
+    if (maybeLocation.isPresent() && maybeLocation.get().getId() != id) {
+        throw new ValidationException("Location with name=" + name + " already exists");
+    }
+
+    return super.update(id, form);
+}
+```
+
+![result/before.png](result/before.png)
+
+Как видно, первый подход оказался неудачным: некоторые локации успевают создаваться с одинаковым именем, из-за чего мы наблюдаем неконсистентность: возможность/невозможность создать несколько локаций с одинаковым именем зависит от того, когда мы запустили запрос.
+
+Проблема в том, что в рамках выполнения какого-либо запроса между "проверкой на наличие" и "созданием объекта" могут "втиснуться" другие запросы, и тогда на момент создания объекта проверка окажется невалидной.
+
+Чтобы исправить это, установим уровень изоляции `SERIALIZABLE`, повесим `Retryable` для того, чтобы дать запросу шанс на исполнение, добавим обработчик исключения транзакции:
+
+```java
+@Override
+@Retryable(
+    retryFor = { CannotAcquireLockException.class },
+    notRecoverable = { ValidationException.class },
+    maxAttempts = 5,
+    backoff = @Backoff(delay = 100)
+)
+@Transactional(isolation = Isolation.SERIALIZABLE)
+public LocationDto create(LocationCreateDto form) {
+    String name = form.getName();
+    if (locationWithName(name).isPresent()) {
+        throw new ValidationException("Location with name=" + name + " already exists");
+    }
+
+    return super.create(form);
+}
+
+@Override
+@Retryable(
+    retryFor = { CannotAcquireLockException.class },
+    notRecoverable = { ValidationException.class },
+    maxAttempts = 5,
+    backoff = @Backoff(delay = 100)
+)
+@Transactional(isolation = Isolation.SERIALIZABLE)
+public LocationDto update(int id, LocationCreateDto form) {
+    String name = form.getName();
+    var maybeLocation = locationWithName(name);
+    if (maybeLocation.isPresent() && maybeLocation.get().getId() != id) {
+        throw new ValidationException("Location with name=" + name + " already exists");
+    }
+
+    return super.update(id, form);
+}
+
+@Recover
+public LocationDto handleCreateCannotAcquireLockException(CannotAcquireLockException e, LocationCreateDto form) {
+    throw new ValidationException("Could not acquire lock for creating location: " + form.getName());
+}
+
+@Recover
+public LocationDto handleUpdateCannotAcquireLockException(CannotAcquireLockException e, int id, LocationCreateDto form) {
+    throw new ValidationException("Could not acquire lock for updating location: " + form.getName());
+}
+```
+
+И действительно, теперь создается только 1 объект, все остальные успешно получают ожидаемый Bad Request:
+
+![result/after.png](result/after.png)

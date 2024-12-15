@@ -23,7 +23,7 @@ public class TarGzUtil {
             TarArchiveInputStream tarStream = new TarArchiveInputStream(gzipStream)) {
 
             TarArchiveEntry entry;
-            while ((entry = tarStream.getNextTarEntry()) != null) {
+            while ((entry = tarStream.getNextEntry()) != null) {
                 if (entry.isDirectory()) {
                     continue;
                 }

@@ -11,4 +11,4 @@ build
 app/bin/
 
 archive.tar.gz
-
+jmeter.log
