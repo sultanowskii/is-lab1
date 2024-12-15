@@ -1,0 +1,127 @@
+objects:
+- averageMark: 4
+  coordinates:
+    x: 2
+    y: 30
+  expelledStudents: 1
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 185
+    location:
+      name: East Brendan
+      x: 30
+      y: 17
+      z: 33
+    name: David Daniel
+  name: '71346'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 16
+  transferredStudents: 2
+- averageMark: 2
+  coordinates:
+    x: 5
+    y: 32
+  expelledStudents: 1
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 197
+    location:
+      name: Williamsmouth
+      x: 38
+      y: 19
+      z: 38
+    name: Gerald Scott
+  name: '2062'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 17
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 8
+    y: 24
+  expelledStudents: 4
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 187
+    location:
+      name: Jimtown
+      x: 5
+      y: 13
+      z: 10
+    name: Brittney Jones
+  name: '307'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 21
+  transferredStudents: 2
+- averageMark: 2
+  coordinates:
+    x: 0
+    y: 12
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 193
+    location:
+      name: New Cynthia
+      x: 19
+      y: 31
+      z: 34
+    name: Amanda Reed
+  name: 03389
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 15
+  transferredStudents: 3
+- averageMark: 3
+  coordinates:
+    x: 7
+    y: 34
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 196
+    location:
+      name: Brittneymouth
+      x: 30
+      y: 14
+      z: 3
+    name: Robert Tran
+  name: '46162'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 11
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 7
+    y: 4
+  expelledStudents: 1
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 165
+    location:
+      name: Williamport
+      x: 18
+      y: 30
+      z: 21
+    name: Allen Miller
+  name: '89326'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 17
+  transferredStudents: 1

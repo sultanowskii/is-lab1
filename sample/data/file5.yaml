@@ -1,0 +1,169 @@
+objects:
+- averageMark: 2
+  coordinates:
+    x: 16
+    y: 4
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 187
+    location:
+      name: Lake Charleneton
+      x: 17
+      y: 37
+      z: 29
+    name: Scott Mitchell
+  name: '0145'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 24
+  transferredStudents: 1
+- averageMark: 4
+  coordinates:
+    x: 32
+    y: 22
+  expelledStudents: 1
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 177
+    location:
+      name: Fredericktown
+      x: 33
+      y: 39
+      z: 33
+    name: Sandra Bailey
+  name: '578'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 21
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 30
+    y: 28
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 162
+    location:
+      name: Lake Shawnstad
+      x: 20
+      y: 6
+      z: 11
+    name: Ryan Johnson
+  name: '6604'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 20
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 18
+    y: 27
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 152
+    location:
+      name: South Patrickville
+      x: 23
+      y: 12
+      z: 36
+    name: Steven Barron
+  name: '01235'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 21
+  transferredStudents: 1
+- averageMark: 1
+  coordinates:
+    x: 33
+    y: 1
+  expelledStudents: 3
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 166
+    location:
+      name: Carrollbury
+      x: 33
+      y: 16
+      z: 6
+    name: Jason Estrada
+  name: '970'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 11
+  transferredStudents: 2
+- averageMark: 2
+  coordinates:
+    x: 35
+    y: 16
+  expelledStudents: 2
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 192
+    location:
+      name: Brettmouth
+      x: 34
+      y: 17
+      z: 30
+    name: Melinda Jones
+  name: '015'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 28
+  transferredStudents: 3
+- averageMark: 3
+  coordinates:
+    x: 3
+    y: 15
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 183
+    location:
+      name: Austinshire
+      x: 27
+      y: 3
+      z: 8
+    name: Danielle Rodriguez
+  name: '1857'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 13
+  transferredStudents: 1
+- averageMark: 3
+  coordinates:
+    x: 18
+    y: 12
+  expelledStudents: 5
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 187
+    location:
+      name: North Carolynburgh
+      x: 26
+      y: 23
+      z: 36
+    name: Courtney Wilson
+  name: '1323'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 14
+  transferredStudents: 2

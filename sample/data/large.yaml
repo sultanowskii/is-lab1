@@ -1,0 +1,2101 @@
+objects:
+- averageMark: 5
+  coordinates:
+    x: 14
+    y: 35
+  expelledStudents: 5
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 190
+    location:
+      name: Annton
+      x: 26
+      y: 30
+      z: 39
+    name: Crystal Salazar
+  name: '3947'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 16
+  transferredStudents: 1
+- averageMark: 5
+  coordinates:
+    x: 33
+    y: 6
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 164
+    location:
+      name: Harperview
+      x: 32
+      y: 11
+      z: 38
+    name: John Hughes
+  name: '03534'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 16
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 38
+    y: 14
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 181
+    location:
+      name: Lake Kelseyburgh
+      x: 23
+      y: 15
+      z: 36
+    name: Dwayne Wilson
+  name: '602'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 27
+  transferredStudents: 2
+- averageMark: 1
+  coordinates:
+    x: 15
+    y: 33
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 166
+    location:
+      name: Christopherborough
+      x: 2
+      y: 35
+      z: 19
+    name: Kimberly King
+  name: '033'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 26
+  transferredStudents: 1
+- averageMark: 5
+  coordinates:
+    x: 2
+    y: 15
+  expelledStudents: 1
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 167
+    location:
+      name: Jamesberg
+      x: 8
+      y: 29
+      z: 8
+    name: Lori Parker
+  name: '8049'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 25
+  transferredStudents: 3
+- averageMark: 1
+  coordinates:
+    x: 3
+    y: 34
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 198
+    location:
+      name: Frankton
+      x: 30
+      y: 28
+      z: 29
+    name: Daniel Lopez
+  name: '002'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 12
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 9
+    y: 21
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 156
+    location:
+      name: North Robertland
+      x: 5
+      y: 12
+      z: 34
+    name: Rhonda Adkins
+  name: '40636'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 10
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 2
+    y: 21
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 180
+    location:
+      name: South Brianville
+      x: 20
+      y: 14
+      z: 19
+    name: Michael Dunn
+  name: '798'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 23
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 19
+    y: 5
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 186
+    location:
+      name: Leonardside
+      x: 5
+      y: 17
+      z: 18
+    name: Martin Green
+  name: '6780'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 23
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 18
+    y: 4
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 174
+    location:
+      name: East Christian
+      x: 5
+      y: 9
+      z: 3
+    name: Matthew Owen
+  name: '23406'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 14
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 32
+    y: 22
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 163
+    location:
+      name: Port Petershire
+      x: 4
+      y: 24
+      z: 12
+    name: Mario Krause
+  name: 019
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 12
+  transferredStudents: 1
+- averageMark: 2
+  coordinates:
+    x: 40
+    y: 33
+  expelledStudents: 1
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 169
+    location:
+      name: Schneiderburgh
+      x: 0
+      y: 8
+      z: 25
+    name: Sharon Cherry
+  name: '7045'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 10
+  transferredStudents: 1
+- averageMark: 5
+  coordinates:
+    x: 10
+    y: 39
+  expelledStudents: 5
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 161
+    location:
+      name: North Mariafurt
+      x: 30
+      y: 24
+      z: 9
+    name: Matthew Martin
+  name: '9265'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 17
+  transferredStudents: 1
+- averageMark: 1
+  coordinates:
+    x: 39
+    y: 3
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 179
+    location:
+      name: West Devin
+      x: 27
+      y: 19
+      z: 6
+    name: Harry Taylor
+  name: '705'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 28
+  transferredStudents: 1
+- averageMark: 2
+  coordinates:
+    x: 23
+    y: 32
+  expelledStudents: 4
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 150
+    location:
+      name: Mitchellbury
+      x: 0
+      y: 3
+      z: 15
+    name: Tiffany Richardson
+  name: '159'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 15
+  transferredStudents: 2
+- averageMark: 5
+  coordinates:
+    x: 38
+    y: 36
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 166
+    location:
+      name: South Deannamouth
+      x: 19
+      y: 29
+      z: 32
+    name: Michelle Terry
+  name: '93991'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 24
+  transferredStudents: 2
+- averageMark: 2
+  coordinates:
+    x: 39
+    y: 33
+  expelledStudents: 2
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 175
+    location:
+      name: East Anthony
+      x: 12
+      y: 25
+      z: 32
+    name: Heidi Singleton
+  name: '15559'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 17
+  transferredStudents: 1
+- averageMark: 3
+  coordinates:
+    x: 15
+    y: 8
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 182
+    location:
+      name: Josephmouth
+      x: 28
+      y: 38
+      z: 34
+    name: Leah Martin
+  name: '5021'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 15
+  transferredStudents: 1
+- averageMark: 1
+  coordinates:
+    x: 16
+    y: 26
+  expelledStudents: 5
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 191
+    location:
+      name: Adamland
+      x: 24
+      y: 34
+      z: 17
+    name: Robert Goodwin
+  name: '16028'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 24
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 18
+    y: 17
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 168
+    location:
+      name: Kathleenside
+      x: 19
+      y: 32
+      z: 32
+    name: Rachel Smith
+  name: '86508'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 20
+  transferredStudents: 1
+- averageMark: 3
+  coordinates:
+    x: 29
+    y: 13
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 184
+    location:
+      name: Haydenhaven
+      x: 23
+      y: 11
+      z: 26
+    name: Jeremy Ross
+  name: 00891
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 10
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 21
+    y: 12
+  expelledStudents: 4
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 161
+    location:
+      name: Ryanbury
+      x: 29
+      y: 40
+      z: 37
+    name: Lori Mullins
+  name: '3706'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 26
+  transferredStudents: 2
+- averageMark: 4
+  coordinates:
+    x: 18
+    y: 36
+  expelledStudents: 1
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 185
+    location:
+      name: West Rachelbury
+      x: 26
+      y: 7
+      z: 15
+    name: Sabrina Ingram
+  name: '226'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 29
+  transferredStudents: 2
+- averageMark: 1
+  coordinates:
+    x: 33
+    y: 2
+  expelledStudents: 5
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 183
+    location:
+      name: Hansenbury
+      x: 23
+      y: 26
+      z: 13
+    name: David Jones
+  name: '97762'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 19
+  transferredStudents: 3
+- averageMark: 1
+  coordinates:
+    x: 31
+    y: 5
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 154
+    location:
+      name: Lake Nicole
+      x: 30
+      y: 17
+      z: 6
+    name: Julie Clark
+  name: '5063'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 12
+  transferredStudents: 1
+- averageMark: 4
+  coordinates:
+    x: 18
+    y: 37
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 191
+    location:
+      name: South Kenneth
+      x: 38
+      y: 0
+      z: 35
+    name: Jennifer Hutchinson
+  name: '414'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 15
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 23
+    y: 40
+  expelledStudents: 4
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 158
+    location:
+      name: Annastad
+      x: 2
+      y: 2
+      z: 6
+    name: Jillian Delacruz
+  name: '2871'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 13
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 37
+    y: 31
+  expelledStudents: 1
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 162
+    location:
+      name: Dawsonbury
+      x: 36
+      y: 9
+      z: 38
+    name: Patrick Dickerson
+  name: '60088'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 19
+  transferredStudents: 2
+- averageMark: 5
+  coordinates:
+    x: 0
+    y: 31
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 199
+    location:
+      name: Williamschester
+      x: 10
+      y: 2
+      z: 10
+    name: Roger Strickland
+  name: '17179'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 29
+  transferredStudents: 2
+- averageMark: 4
+  coordinates:
+    x: 39
+    y: 12
+  expelledStudents: 2
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 200
+    location:
+      name: Jacksonmouth
+      x: 15
+      y: 10
+      z: 23
+    name: Kenneth Wright
+  name: '6975'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 14
+  transferredStudents: 3
+- averageMark: 3
+  coordinates:
+    x: 34
+    y: 0
+  expelledStudents: 5
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 192
+    location:
+      name: East Debra
+      x: 6
+      y: 31
+      z: 1
+    name: Cody Parker
+  name: '3069'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 20
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 10
+    y: 34
+  expelledStudents: 2
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 185
+    location:
+      name: Toddborough
+      x: 25
+      y: 9
+      z: 13
+    name: Benjamin Davis
+  name: '6599'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 11
+  transferredStudents: 1
+- averageMark: 2
+  coordinates:
+    x: 17
+    y: 9
+  expelledStudents: 1
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 164
+    location:
+      name: New Derrickside
+      x: 18
+      y: 3
+      z: 27
+    name: Carrie Valencia
+  name: '465'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 11
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 39
+    y: 5
+  expelledStudents: 4
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 176
+    location:
+      name: Wrightland
+      x: 4
+      y: 39
+      z: 9
+    name: Kelsey Burgess
+  name: '10020'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 21
+  transferredStudents: 1
+- averageMark: 1
+  coordinates:
+    x: 11
+    y: 19
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 154
+    location:
+      name: Johnland
+      x: 32
+      y: 33
+      z: 16
+    name: Lisa Williams
+  name: '42999'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 29
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 11
+    y: 32
+  expelledStudents: 1
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 193
+    location:
+      name: Ryanside
+      x: 23
+      y: 11
+      z: 29
+    name: Nicole Robinson
+  name: '752'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 14
+  transferredStudents: 1
+- averageMark: 4
+  coordinates:
+    x: 1
+    y: 11
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 192
+    location:
+      name: Westmouth
+      x: 30
+      y: 16
+      z: 10
+    name: Anna Armstrong
+  name: 0874
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 25
+  transferredStudents: 2
+- averageMark: 4
+  coordinates:
+    x: 13
+    y: 36
+  expelledStudents: 4
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 194
+    location:
+      name: Lauraside
+      x: 29
+      y: 12
+      z: 16
+    name: Patricia Green
+  name: '904'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 21
+  transferredStudents: 3
+- averageMark: 3
+  coordinates:
+    x: 15
+    y: 5
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 167
+    location:
+      name: North Lauraville
+      x: 39
+      y: 10
+      z: 5
+    name: Ross Smith
+  name: '248'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 30
+  transferredStudents: 2
+- averageMark: 5
+  coordinates:
+    x: 34
+    y: 15
+  expelledStudents: 3
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 157
+    location:
+      name: Lake Drew
+      x: 13
+      y: 27
+      z: 3
+    name: Heather Wang
+  name: '809'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 16
+  transferredStudents: 2
+- averageMark: 4
+  coordinates:
+    x: 7
+    y: 19
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 189
+    location:
+      name: Rodriguezberg
+      x: 10
+      y: 10
+      z: 13
+    name: Nicole Lane
+  name: '226'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 16
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 34
+    y: 23
+  expelledStudents: 3
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 177
+    location:
+      name: Lake Terrimouth
+      x: 35
+      y: 13
+      z: 23
+    name: Laurie Gonzalez
+  name: '23698'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 19
+  transferredStudents: 1
+- averageMark: 3
+  coordinates:
+    x: 18
+    y: 11
+  expelledStudents: 4
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 176
+    location:
+      name: Dunlapmouth
+      x: 15
+      y: 14
+      z: 20
+    name: Joseph Lee
+  name: '7931'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 22
+  transferredStudents: 1
+- averageMark: 3
+  coordinates:
+    x: 31
+    y: 4
+  expelledStudents: 2
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 165
+    location:
+      name: Juliemouth
+      x: 22
+      y: 37
+      z: 12
+    name: Kimberly Burke
+  name: '939'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 20
+  transferredStudents: 2
+- averageMark: 2
+  coordinates:
+    x: 27
+    y: 11
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 170
+    location:
+      name: Josebury
+      x: 37
+      y: 21
+      z: 18
+    name: Jeremiah Martinez
+  name: '27109'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 29
+  transferredStudents: 2
+- averageMark: 4
+  coordinates:
+    x: 7
+    y: 19
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 176
+    location:
+      name: Collinsburgh
+      x: 36
+      y: 24
+      z: 21
+    name: Janet Acosta
+  name: 0386
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 25
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 34
+    y: 10
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 168
+    location:
+      name: Davidmouth
+      x: 4
+      y: 33
+      z: 19
+    name: Alicia Burke
+  name: '28711'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 25
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 21
+    y: 10
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 173
+    location:
+      name: South Linda
+      x: 3
+      y: 31
+      z: 2
+    name: Dr. Tina Jackson
+  name: '5954'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 11
+  transferredStudents: 3
+- averageMark: 3
+  coordinates:
+    x: 39
+    y: 21
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 175
+    location:
+      name: Carrieshire
+      x: 27
+      y: 22
+      z: 26
+    name: Melissa Wiley
+  name: '77813'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 15
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 0
+    y: 28
+  expelledStudents: 2
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 167
+    location:
+      name: West Tracyburgh
+      x: 8
+      y: 1
+      z: 32
+    name: Jon Maddox
+  name: '18673'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 10
+  transferredStudents: 3
+- averageMark: 1
+  coordinates:
+    x: 28
+    y: 6
+  expelledStudents: 4
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 197
+    location:
+      name: Port George
+      x: 1
+      y: 35
+      z: 16
+    name: Joanne Carroll
+  name: '92526'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 15
+  transferredStudents: 3
+- averageMark: 1
+  coordinates:
+    x: 20
+    y: 40
+  expelledStudents: 2
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 172
+    location:
+      name: Port Jill
+      x: 29
+      y: 27
+      z: 35
+    name: Ashley Smith
+  name: '525'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 30
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 34
+    y: 1
+  expelledStudents: 4
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 167
+    location:
+      name: Jonesstad
+      x: 24
+      y: 32
+      z: 2
+    name: Deanna Wiggins
+  name: '3323'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 17
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 20
+    y: 39
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 169
+    location:
+      name: Port April
+      x: 12
+      y: 24
+      z: 40
+    name: Jennifer Diaz
+  name: '51486'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 28
+  transferredStudents: 3
+- averageMark: 1
+  coordinates:
+    x: 25
+    y: 8
+  expelledStudents: 5
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 167
+    location:
+      name: South Craigfort
+      x: 24
+      y: 31
+      z: 24
+    name: John Newton
+  name: '4879'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 13
+  transferredStudents: 2
+- averageMark: 2
+  coordinates:
+    x: 0
+    y: 37
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 180
+    location:
+      name: West Nancyport
+      x: 22
+      y: 40
+      z: 14
+    name: Kelly Miller
+  name: '231'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 11
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 30
+    y: 29
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 165
+    location:
+      name: West Laura
+      x: 8
+      y: 34
+      z: 21
+    name: Christopher Moore
+  name: '86401'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 10
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 32
+    y: 30
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 177
+    location:
+      name: Bishopchester
+      x: 39
+      y: 7
+      z: 32
+    name: Shannon Brooks
+  name: 0875
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 25
+  transferredStudents: 1
+- averageMark: 2
+  coordinates:
+    x: 29
+    y: 7
+  expelledStudents: 5
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 171
+    location:
+      name: Kimberlyton
+      x: 24
+      y: 12
+      z: 4
+    name: Jeremiah Walters
+  name: '9018'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 10
+  transferredStudents: 3
+- averageMark: 3
+  coordinates:
+    x: 39
+    y: 9
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 173
+    location:
+      name: Michaelberg
+      x: 10
+      y: 34
+      z: 7
+    name: William Keller
+  name: '949'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 30
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 37
+    y: 19
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 161
+    location:
+      name: Jenkinsville
+      x: 32
+      y: 30
+      z: 14
+    name: Manuel Little
+  name: '54690'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 10
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 5
+    y: 20
+  expelledStudents: 1
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 152
+    location:
+      name: Richardstad
+      x: 34
+      y: 9
+      z: 33
+    name: Gregory Ward
+  name: '38170'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 30
+  transferredStudents: 1
+- averageMark: 1
+  coordinates:
+    x: 35
+    y: 3
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 161
+    location:
+      name: Whiteside
+      x: 12
+      y: 37
+      z: 11
+    name: Erika Cherry
+  name: '280'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 11
+  transferredStudents: 1
+- averageMark: 2
+  coordinates:
+    x: 19
+    y: 23
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 155
+    location:
+      name: New Katieberg
+      x: 11
+      y: 30
+      z: 11
+    name: Robert Boyer
+  name: '2807'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 15
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 36
+    y: 11
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 197
+    location:
+      name: Port Timothy
+      x: 24
+      y: 21
+      z: 16
+    name: Heather Lopez
+  name: '874'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 17
+  transferredStudents: 1
+- averageMark: 5
+  coordinates:
+    x: 5
+    y: 35
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 157
+    location:
+      name: Port James
+      x: 15
+      y: 19
+      z: 39
+    name: Calvin Riley
+  name: '1871'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 29
+  transferredStudents: 1
+- averageMark: 2
+  coordinates:
+    x: 11
+    y: 33
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 175
+    location:
+      name: Lake Stephanie
+      x: 31
+      y: 7
+      z: 3
+    name: Angel Wilson
+  name: 0790
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 12
+  transferredStudents: 3
+- averageMark: 1
+  coordinates:
+    x: 34
+    y: 8
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 167
+    location:
+      name: Andrewmouth
+      x: 6
+      y: 36
+      z: 3
+    name: Leah Glenn
+  name: '441'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 28
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 13
+    y: 29
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 153
+    location:
+      name: Port Michael
+      x: 29
+      y: 22
+      z: 35
+    name: Stephanie Serrano
+  name: '27216'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 18
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 16
+    y: 32
+  expelledStudents: 1
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 194
+    location:
+      name: Lake Calvin
+      x: 0
+      y: 25
+      z: 36
+    name: Brittney Fields
+  name: '852'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 21
+  transferredStudents: 2
+- averageMark: 4
+  coordinates:
+    x: 38
+    y: 27
+  expelledStudents: 1
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 187
+    location:
+      name: Randyfort
+      x: 19
+      y: 26
+      z: 34
+    name: Brian Knight
+  name: '26159'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 26
+  transferredStudents: 3
+- averageMark: 1
+  coordinates:
+    x: 21
+    y: 21
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 172
+    location:
+      name: Diazville
+      x: 35
+      y: 35
+      z: 20
+    name: Gregory Moran
+  name: '428'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 26
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 24
+    y: 34
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 198
+    location:
+      name: Staceyport
+      x: 0
+      y: 40
+      z: 32
+    name: Justin Yang
+  name: '39911'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 29
+  transferredStudents: 1
+- averageMark: 3
+  coordinates:
+    x: 18
+    y: 11
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 156
+    location:
+      name: South Matthewton
+      x: 0
+      y: 39
+      z: 12
+    name: Chelsea Russell
+  name: '4943'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 11
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 7
+    y: 35
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 186
+    location:
+      name: Joland
+      x: 24
+      y: 18
+      z: 1
+    name: David Martinez MD
+  name: '63832'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 29
+  transferredStudents: 2
+- averageMark: 1
+  coordinates:
+    x: 1
+    y: 26
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 199
+    location:
+      name: South Alison
+      x: 23
+      y: 33
+      z: 37
+    name: Adam Ballard
+  name: '123'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 27
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 18
+    y: 25
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 163
+    location:
+      name: North Teresamouth
+      x: 32
+      y: 23
+      z: 40
+    name: Michael Williams
+  name: '98469'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 28
+  transferredStudents: 1
+- averageMark: 1
+  coordinates:
+    x: 36
+    y: 3
+  expelledStudents: 1
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 167
+    location:
+      name: New Annetteview
+      x: 32
+      y: 15
+      z: 1
+    name: Jennifer Smith
+  name: '954'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 18
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 23
+    y: 19
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 198
+    location:
+      name: Knightside
+      x: 19
+      y: 3
+      z: 14
+    name: Michael Hester
+  name: '9689'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 29
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 1
+    y: 8
+  expelledStudents: 3
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 153
+    location:
+      name: Johnsonmouth
+      x: 18
+      y: 26
+      z: 31
+    name: Jonathan Howard
+  name: '4691'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 28
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 23
+    y: 29
+  expelledStudents: 1
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 165
+    location:
+      name: Garciamouth
+      x: 40
+      y: 15
+      z: 32
+    name: Daniel Mooney
+  name: '450'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 16
+  transferredStudents: 1
+- averageMark: 4
+  coordinates:
+    x: 25
+    y: 34
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 169
+    location:
+      name: New Richard
+      x: 10
+      y: 25
+      z: 17
+    name: Shawn Reed
+  name: '5891'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 10
+  transferredStudents: 1
+- averageMark: 5
+  coordinates:
+    x: 8
+    y: 6
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 169
+    location:
+      name: West Jessica
+      x: 0
+      y: 1
+      z: 14
+    name: Luke Navarro
+  name: '0541'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 17
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 5
+    y: 14
+  expelledStudents: 4
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 179
+    location:
+      name: Emilyfort
+      x: 17
+      y: 13
+      z: 28
+    name: George Marshall
+  name: '4903'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 11
+  transferredStudents: 1
+- averageMark: 3
+  coordinates:
+    x: 24
+    y: 25
+  expelledStudents: 4
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 160
+    location:
+      name: Port Kimberlyland
+      x: 11
+      y: 32
+      z: 33
+    name: David Schwartz
+  name: 08823
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 16
+  transferredStudents: 3
+- averageMark: 3
+  coordinates:
+    x: 4
+    y: 1
+  expelledStudents: 4
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 184
+    location:
+      name: Lake Danielleborough
+      x: 19
+      y: 24
+      z: 28
+    name: Michael Horn
+  name: '935'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 26
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 32
+    y: 16
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 152
+    location:
+      name: West Tyler
+      x: 17
+      y: 39
+      z: 27
+    name: Lisa Cooper
+  name: '1722'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 15
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 14
+    y: 20
+  expelledStudents: 2
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 172
+    location:
+      name: East Kevin
+      x: 17
+      y: 4
+      z: 39
+    name: Haley Lynch
+  name: '79365'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 10
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 3
+    y: 37
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 157
+    location:
+      name: Lake Caitlin
+      x: 33
+      y: 25
+      z: 34
+    name: Terri Fuller
+  name: '073'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 21
+  transferredStudents: 1
+- averageMark: 3
+  coordinates:
+    x: 15
+    y: 2
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 176
+    location:
+      name: Yvetteview
+      x: 37
+      y: 26
+      z: 29
+    name: Brian Durham
+  name: '6963'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 14
+  transferredStudents: 1
+- averageMark: 4
+  coordinates:
+    x: 15
+    y: 21
+  expelledStudents: 5
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 165
+    location:
+      name: Jefferyfurt
+      x: 8
+      y: 35
+      z: 3
+    name: Mark Ramsey
+  name: '601'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 11
+  transferredStudents: 2
+- averageMark: 2
+  coordinates:
+    x: 34
+    y: 6
+  expelledStudents: 1
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 171
+    location:
+      name: Anthonytown
+      x: 1
+      y: 14
+      z: 12
+    name: Michael Spence
+  name: '19917'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 16
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 4
+    y: 34
+  expelledStudents: 1
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 176
+    location:
+      name: Simmonsborough
+      x: 0
+      y: 1
+      z: 27
+    name: Tina Brooks
+  name: '065'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 19
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 4
+    y: 29
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 189
+    location:
+      name: Tonyaton
+      x: 11
+      y: 6
+      z: 40
+    name: Stephen Horn
+  name: '14408'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 22
+  transferredStudents: 2
+- averageMark: 2
+  coordinates:
+    x: 30
+    y: 9
+  expelledStudents: 1
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 198
+    location:
+      name: Port Beverly
+      x: 1
+      y: 3
+      z: 17
+    name: Meghan Harris
+  name: '045'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 27
+  transferredStudents: 2
+- averageMark: 5
+  coordinates:
+    x: 35
+    y: 33
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 184
+    location:
+      name: Lake Justinmouth
+      x: 29
+      y: 28
+      z: 5
+    name: Scott Atkins
+  name: '718'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 12
+  transferredStudents: 2
+- averageMark: 1
+  coordinates:
+    x: 33
+    y: 8
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 198
+    location:
+      name: North Catherineton
+      x: 2
+      y: 0
+      z: 37
+    name: Benjamin Smith
+  name: '124'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 12
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 3
+    y: 14
+  expelledStudents: 5
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 182
+    location:
+      name: Denisetown
+      x: 17
+      y: 17
+      z: 16
+    name: Timothy Jimenez
+  name: '066'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 22
+  transferredStudents: 1
+- averageMark: 1
+  coordinates:
+    x: 0
+    y: 30
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 173
+    location:
+      name: Bonnieview
+      x: 19
+      y: 36
+      z: 14
+    name: Ann Davis
+  name: '3626'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 26
+  transferredStudents: 2
+- averageMark: 4
+  coordinates:
+    x: 21
+    y: 17
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 166
+    location:
+      name: Cynthiaberg
+      x: 24
+      y: 34
+      z: 40
+    name: Hunter Nichols
+  name: '965'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 29
+  transferredStudents: 1

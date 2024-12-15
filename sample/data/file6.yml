@@ -1,0 +1,85 @@
+objects:
+- averageMark: 5
+  coordinates:
+    x: 5
+    y: 21
+  expelledStudents: 5
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 151
+    location:
+      name: Tabithaland
+      x: 28
+      y: 10
+      z: 2
+    name: Bridget Hurst
+  name: '522'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 25
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 18
+    y: 29
+  expelledStudents: 5
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 154
+    location:
+      name: Gibsonhaven
+      x: 17
+      y: 18
+      z: 28
+    name: Destiny Greene
+  name: '9562'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 22
+  transferredStudents: 1
+- averageMark: 3
+  coordinates:
+    x: 36
+    y: 19
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 152
+    location:
+      name: Port Matthew
+      x: 35
+      y: 29
+      z: 12
+    name: Charles Massey
+  name: '783'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 25
+  transferredStudents: 2
+- averageMark: 5
+  coordinates:
+    x: 32
+    y: 1
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 154
+    location:
+      name: Clarkport
+      x: 9
+      y: 30
+      z: 6
+    name: Dr. Carl Burgess
+  name: 05862
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 19
+  transferredStudents: 2

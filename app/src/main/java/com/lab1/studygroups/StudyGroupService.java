@@ -8,19 +8,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lab1.common.CRUDService;
 import com.lab1.common.Cache;
+import com.lab1.common.Redis;
 import com.lab1.studygroups.dto.*;
 import com.lab1.users.UserService;
 
-import redis.clients.jedis.Jedis;
 
 @Service
 public class StudyGroupService extends CRUDService<StudyGroup, StudyGroupDto, StudyGroupCreateDto> {
-    private final Jedis jedis;
+    private final Redis redis;
 
     @Autowired
-    public StudyGroupService(UserService userService, StudyGroupRepository studyGroupRepository, StudyGroupMapper studyGroupMapper, Jedis jedis) {
+    public StudyGroupService(UserService userService, StudyGroupRepository studyGroupRepository, StudyGroupMapper studyGroupMapper, Redis redis) {
         super(userService, studyGroupRepository, studyGroupMapper);
-        this.jedis = jedis;
+        this.redis = redis;
     }
 
     @Override
@@ -33,14 +33,18 @@ public class StudyGroupService extends CRUDService<StudyGroup, StudyGroupDto, St
     @Transactional
     public void delete(int id) {
         super.delete(id);
+        var jedis = redis.getResource();
         jedis.del(Cache.CACHE_KEY_TOTAL_EXPELLED_STUDENTS);
+        jedis.close();
     }
 
     @Override
     @Transactional
     public StudyGroupDto update(int id, StudyGroupCreateDto form) {
         final var result = super.update(id, form);
+        var jedis = redis.getResource();
         jedis.del(Cache.CACHE_KEY_TOTAL_EXPELLED_STUDENTS);
+        jedis.close();
         return result;
     }
 }

@@ -1,0 +1,22 @@
+objects:
+- averageMark: 4
+  coordinates:
+    x: 34
+    y: 32
+  expelledStudents: 4
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 161
+    location:
+      name: Martinezchester
+      x: 8
+      y: 11
+      z: 5
+    name: Eric Thompson
+  name: '22266'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 13
+  transferredStudents: 3

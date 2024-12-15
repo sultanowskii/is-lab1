@@ -1,0 +1,148 @@
+objects:
+- averageMark: 1
+  coordinates:
+    x: 24
+    y: 8
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 152
+    location:
+      name: Port Jose
+      x: 15
+      y: 3
+      z: 20
+    name: Molly Esparza
+  name: '74652'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 11
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 36
+    y: 5
+  expelledStudents: 5
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 175
+    location:
+      name: East Johnville
+      x: 14
+      y: 29
+      z: 39
+    name: Evan Peterson
+  name: '731'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 18
+  transferredStudents: 1
+- averageMark: 2
+  coordinates:
+    x: 10
+    y: 30
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 153
+    location:
+      name: North Kathleenland
+      x: 32
+      y: 22
+      z: 29
+    name: Carrie Smith
+  name: '543'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 23
+  transferredStudents: 1
+- averageMark: 2
+  coordinates:
+    x: 6
+    y: 10
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 170
+    location:
+      name: Valerieside
+      x: 9
+      y: 23
+      z: 29
+    name: Mark Morales Jr.
+  name: '2702'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 15
+  transferredStudents: 2
+- averageMark: 5
+  coordinates:
+    x: 31
+    y: 26
+  expelledStudents: 5
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 159
+    location:
+      name: West Chasefurt
+      x: 23
+      y: 10
+      z: 2
+    name: Susan Holden
+  name: '46265'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 14
+  transferredStudents: 1
+- averageMark: 2
+  coordinates:
+    x: 8
+    y: 23
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 197
+    location:
+      name: North Andrew
+      x: 31
+      y: 26
+      z: 33
+    name: Kimberly Wheeler
+  name: '7632'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 17
+  transferredStudents: 2
+- averageMark: 1
+  coordinates:
+    x: 7
+    y: 10
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 156
+    location:
+      name: Lake Ashleychester
+      x: 18
+      y: 11
+      z: 37
+    name: Teresa Hansen
+  name: '8619'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 20
+  transferredStudents: 1

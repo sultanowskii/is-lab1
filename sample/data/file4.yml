@@ -1,0 +1,43 @@
+objects:
+- averageMark: 3
+  coordinates:
+    x: 27
+    y: 36
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 176
+    location:
+      name: Jamesside
+      x: 5
+      y: 25
+      z: 23
+    name: Christina Matthews
+  name: '046'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 17
+  transferredStudents: 3
+- averageMark: 1
+  coordinates:
+    x: 32
+    y: 4
+  expelledStudents: 1
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 172
+    location:
+      name: Peterland
+      x: 4
+      y: 8
+      z: 3
+    name: Shaun Ramos
+  name: '402'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 12
+  transferredStudents: 2

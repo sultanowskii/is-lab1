@@ -6,7 +6,9 @@ build
 
 .env
 .vscode/
+.venv/
 
 app/bin/
 
 archive.tar.gz
+

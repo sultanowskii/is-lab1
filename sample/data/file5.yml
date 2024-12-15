@@ -1,0 +1,22 @@
+objects:
+- averageMark: 4
+  coordinates:
+    x: 8
+    y: 1
+  expelledStudents: 4
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 198
+    location:
+      name: Brownside
+      x: 23
+      y: 21
+      z: 20
+    name: John Floyd
+  name: '7406'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 14
+  transferredStudents: 2

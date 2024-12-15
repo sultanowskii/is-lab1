@@ -1,0 +1,148 @@
+objects:
+- averageMark: 4
+  coordinates:
+    x: 10
+    y: 35
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 169
+    location:
+      name: Penningtonside
+      x: 6
+      y: 11
+      z: 39
+    name: Courtney Williamson
+  name: '12040'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 16
+  transferredStudents: 1
+- averageMark: 5
+  coordinates:
+    x: 31
+    y: 22
+  expelledStudents: 1
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 161
+    location:
+      name: Davidport
+      x: 3
+      y: 11
+      z: 21
+    name: Frank Taylor
+  name: 0855
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 24
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 16
+    y: 7
+  expelledStudents: 5
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 151
+    location:
+      name: Henryton
+      x: 40
+      y: 5
+      z: 29
+    name: Kristy Cole
+  name: '916'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 27
+  transferredStudents: 1
+- averageMark: 1
+  coordinates:
+    x: 8
+    y: 0
+  expelledStudents: 4
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 173
+    location:
+      name: Ginaton
+      x: 12
+      y: 18
+      z: 9
+    name: Louis Brewer
+  name: '849'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 24
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 32
+    y: 4
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 170
+    location:
+      name: North Andrew
+      x: 16
+      y: 16
+      z: 2
+    name: Todd Mills
+  name: '84824'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 14
+  transferredStudents: 2
+- averageMark: 2
+  coordinates:
+    x: 25
+    y: 21
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 175
+    location:
+      name: West Josephside
+      x: 37
+      y: 22
+      z: 34
+    name: Jessica Bryant
+  name: '17874'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 24
+  transferredStudents: 1
+- averageMark: 5
+  coordinates:
+    x: 2
+    y: 26
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 188
+    location:
+      name: East Barbarashire
+      x: 24
+      y: 25
+      z: 10
+    name: Brian Hughes
+  name: '50610'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 23
+  transferredStudents: 1

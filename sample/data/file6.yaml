@@ -1,0 +1,148 @@
+objects:
+- averageMark: 2
+  coordinates:
+    x: 15
+    y: 5
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 185
+    location:
+      name: Christinahaven
+      x: 18
+      y: 8
+      z: 5
+    name: Gabriela Harris
+  name: '42866'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 25
+  transferredStudents: 1
+- averageMark: 3
+  coordinates:
+    x: 36
+    y: 19
+  expelledStudents: 1
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 162
+    location:
+      name: Lake Aliciaberg
+      x: 18
+      y: 18
+      z: 7
+    name: Brady Gonzalez
+  name: '42928'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 29
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 15
+    y: 24
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 173
+    location:
+      name: East Jenniferfurt
+      x: 8
+      y: 21
+      z: 26
+    name: Paul Williams
+  name: '2219'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 12
+  transferredStudents: 1
+- averageMark: 2
+  coordinates:
+    x: 2
+    y: 38
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 158
+    location:
+      name: Lake Jose
+      x: 30
+      y: 12
+      z: 17
+    name: Erica Castillo
+  name: '040'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 26
+  transferredStudents: 1
+- averageMark: 3
+  coordinates:
+    x: 4
+    y: 20
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 183
+    location:
+      name: Johnsonside
+      x: 0
+      y: 2
+      z: 27
+    name: Miguel Little
+  name: '919'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 21
+  transferredStudents: 3
+- averageMark: 3
+  coordinates:
+    x: 26
+    y: 2
+  expelledStudents: 3
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 173
+    location:
+      name: South Raymond
+      x: 17
+      y: 7
+      z: 37
+    name: Erin Hampton
+  name: '518'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 21
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 32
+    y: 27
+  expelledStudents: 1
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 171
+    location:
+      name: New Jamiestad
+      x: 38
+      y: 28
+      z: 3
+    name: Veronica Mcclure
+  name: '42687'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 19
+  transferredStudents: 3

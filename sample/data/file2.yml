@@ -1,0 +1,43 @@
+objects:
+- averageMark: 1
+  coordinates:
+    x: 33
+    y: 23
+  expelledStudents: 1
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 192
+    location:
+      name: Reynoldsburgh
+      x: 18
+      y: 22
+      z: 31
+    name: Brian Ortega
+  name: '7620'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 16
+  transferredStudents: 3
+- averageMark: 1
+  coordinates:
+    x: 30
+    y: 32
+  expelledStudents: 1
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 157
+    location:
+      name: West Nicole
+      x: 28
+      y: 10
+      z: 15
+    name: Sean Farmer
+  name: '615'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 13
+  transferredStudents: 2

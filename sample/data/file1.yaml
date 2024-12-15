@@ -1,0 +1,127 @@
+objects:
+- averageMark: 2
+  coordinates:
+    x: 7
+    y: 15
+  expelledStudents: 4
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 197
+    location:
+      name: Port Rodneyfurt
+      x: 37
+      y: 8
+      z: 1
+    name: Ronnie Anderson
+  name: '273'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 17
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 38
+    y: 22
+  expelledStudents: 3
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 156
+    location:
+      name: Taylorport
+      x: 13
+      y: 37
+      z: 38
+    name: Christopher Hernandez
+  name: '2037'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 17
+  transferredStudents: 2
+- averageMark: 4
+  coordinates:
+    x: 29
+    y: 0
+  expelledStudents: 4
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 183
+    location:
+      name: Conwayfurt
+      x: 37
+      y: 36
+      z: 4
+    name: Jeffrey Patterson
+  name: '95145'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 15
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 11
+    y: 3
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 177
+    location:
+      name: New Apriltown
+      x: 39
+      y: 2
+      z: 32
+    name: Chase Mann
+  name: '273'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 12
+  transferredStudents: 3
+- averageMark: 1
+  coordinates:
+    x: 16
+    y: 30
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 177
+    location:
+      name: East Matthewport
+      x: 0
+      y: 18
+      z: 35
+    name: Kimberly Mccarthy
+  name: '73916'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 29
+  transferredStudents: 3
+- averageMark: 3
+  coordinates:
+    x: 11
+    y: 31
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 189
+    location:
+      name: North Amyborough
+      x: 14
+      y: 1
+      z: 11
+    name: Ruben Oconnell
+  name: '9442'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 21
+  transferredStudents: 3

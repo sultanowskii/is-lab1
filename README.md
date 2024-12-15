@@ -15,3 +15,70 @@
   - Реализованный сценарий должен покрывать создание, редактирование, удаление и импорт объектов.
   - Реализованный сценарий должен проверять корректность поведения системы при попытке нескольких пользователей обновить и\или удалить один и тот же объект (например, двух администраторов).
   - Реализованный сценарий должен проверять корректность соблюдения системой ограничений уникальности предметной области при одновременной попытке нескольких пользователей создать объект с одним и тем же уникальным значением.
+
+---
+
+Во время запуска сценария начала возникать ошибка (при обновлении StudyGroup):
+
+```java
+Unexpected exception:redis.clients.jedis.exceptions.JedisConnectionException: java.net.SocketException: Broken pipe
+```
+
+Похоже, при большом кол-ве запросов начинаются проблемы с redis-ом - начинают появляться (и не пересоздаваться!) "сломанные" соединения.
+
+```java
+@Component
+public class Redis {
+    @Value("${redis.host}")
+    private String host;
+
+    @Value("${redis.port}")
+    private int port;
+
+    private JedisPool pool;
+
+    private JedisPoolConfig buildPoolConfig() {
+        final JedisPoolConfig poolConfig = new JedisPoolConfig();
+        poolConfig.setMaxTotal(200);
+        poolConfig.setMaxIdle(200);
+        poolConfig.setMinIdle(20);
+        // Maximum wait time when the connections are used up
+        poolConfig.setMaxWait(Duration.ofMillis(3000));
+        // When a connection is returned, a check will be performed first. Once the check fails, the connection will be terminated.
+        poolConfig.setTestOnReturn(false);
+        return poolConfig;
+    }
+
+    private JedisPool getPool() {
+        return new JedisPool(buildPoolConfig(), host, port, 2000);
+    }
+
+    public Jedis getResource() {
+        if (pool == null) {
+            pool = getPool();
+        }
+
+        Jedis jedis;
+        try {
+            jedis = pool.getResource();
+            jedis.ping();
+        } catch (JedisException e) {
+            pool.destroy();
+            pool = getPool();
+            jedis = pool.getResource();
+        }
+
+        return jedis;
+    }
+}
+```
+
+Добавив пул соединений, изменив код получения Jedis-а, ситуация не изменилась - тогда я вспомнил, что соединения по-хорошему надо бы закрывать:
+
+```java
+var jedis = redis.getResource();
+jedis.del(Cache.CACHE_KEY_TOTAL_EXPELLED_STUDENTS);
+jedis.close();
+```
+
+И действительно, после закрытия ресурса во всех местах использования redis, ошибок при работе с StudyGroup более не возникало.

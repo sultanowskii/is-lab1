@@ -1,0 +1,190 @@
+objects:
+- averageMark: 1
+  coordinates:
+    x: 26
+    y: 9
+  expelledStudents: 4
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 155
+    location:
+      name: Pennystad
+      x: 22
+      y: 27
+      z: 38
+    name: Sharon Donaldson
+  name: '3390'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 25
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 15
+    y: 33
+  expelledStudents: 1
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 190
+    location:
+      name: South Patriciaport
+      x: 2
+      y: 19
+      z: 4
+    name: Virginia Taylor
+  name: '4787'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 11
+  transferredStudents: 2
+- averageMark: 4
+  coordinates:
+    x: 3
+    y: 9
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 152
+    location:
+      name: Francoshire
+      x: 29
+      y: 24
+      z: 4
+    name: John Long
+  name: '2980'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 3
+  studentsCount: 30
+  transferredStudents: 1
+- averageMark: 3
+  coordinates:
+    x: 40
+    y: 18
+  expelledStudents: 4
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 199
+    location:
+      name: West Nancybury
+      x: 30
+      y: 21
+      z: 13
+    name: Mary Quinn
+  name: '00550'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 12
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 35
+    y: 18
+  expelledStudents: 4
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 153
+    location:
+      name: Johnchester
+      x: 33
+      y: 11
+      z: 40
+    name: Dorothy Mccarthy
+  name: '4016'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 15
+  transferredStudents: 1
+- averageMark: 5
+  coordinates:
+    x: 4
+    y: 11
+  expelledStudents: 3
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 161
+    location:
+      name: North Johnfurt
+      x: 17
+      y: 13
+      z: 6
+    name: Kayla Miller
+  name: '1891'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 10
+  transferredStudents: 2
+- averageMark: 5
+  coordinates:
+    x: 32
+    y: 24
+  expelledStudents: 1
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 179
+    location:
+      name: Phillipsview
+      x: 8
+      y: 12
+      z: 4
+    name: Chase Jackson
+  name: '53836'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 15
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 19
+    y: 22
+  expelledStudents: 1
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: WHITE
+    height: 154
+    location:
+      name: Lake Meghan
+      x: 17
+      y: 0
+      z: 16
+    name: Sarah Cunningham
+  name: '69429'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 21
+  transferredStudents: 2
+- averageMark: 1
+  coordinates:
+    x: 6
+    y: 4
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 191
+    location:
+      name: New Roy
+      x: 28
+      y: 22
+      z: 27
+    name: Joshua Livingston
+  name: '02233'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 21
+  transferredStudents: 1

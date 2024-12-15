@@ -1,0 +1,22 @@
+objects:
+- averageMark: 2
+  coordinates:
+    x: 11
+    y: 16
+  expelledStudents: 1
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 196
+    location:
+      name: Lake Martinfurt
+      x: 4
+      y: 15
+      z: 17
+    name: Stacey Howard
+  name: '191'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 22
+  transferredStudents: 2

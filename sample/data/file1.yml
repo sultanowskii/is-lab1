@@ -1,0 +1,148 @@
+objects:
+- averageMark: 4
+  coordinates:
+    x: 24
+    y: 32
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 161
+    location:
+      name: Richardstad
+      x: 8
+      y: 3
+      z: 2
+    name: David Davis
+  name: '20605'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 28
+  transferredStudents: 1
+- averageMark: 2
+  coordinates:
+    x: 28
+    y: 22
+  expelledStudents: 1
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 194
+    location:
+      name: Thompsonmouth
+      x: 15
+      y: 11
+      z: 18
+    name: Raymond Jones
+  name: '669'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 12
+  transferredStudents: 1
+- averageMark: 1
+  coordinates:
+    x: 21
+    y: 14
+  expelledStudents: 1
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: ORANGE
+    height: 192
+    location:
+      name: Jamesstad
+      x: 9
+      y: 26
+      z: 40
+    name: Randy Shannon
+  name: '5884'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 2
+  studentsCount: 18
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 8
+    y: 8
+  expelledStudents: 2
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 152
+    location:
+      name: West Brian
+      x: 25
+      y: 4
+      z: 27
+    name: Sarah Kim
+  name: '6313'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 26
+  transferredStudents: 3
+- averageMark: 4
+  coordinates:
+    x: 8
+    y: 32
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 160
+    location:
+      name: East Sarah
+      x: 16
+      y: 2
+      z: 8
+    name: Adrian Meyer
+  name: '06341'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 12
+  transferredStudents: 3
+- averageMark: 2
+  coordinates:
+    x: 33
+    y: 25
+  expelledStudents: 5
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 196
+    location:
+      name: Garciafort
+      x: 10
+      y: 38
+      z: 27
+    name: Jesus Jones
+  name: '18798'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 13
+  transferredStudents: 2
+- averageMark: 1
+  coordinates:
+    x: 36
+    y: 13
+  expelledStudents: 2
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: YELLOW
+    height: 189
+    location:
+      name: South Courtney
+      x: 33
+      y: 25
+      z: 14
+    name: Lee Miller
+  name: '9636'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 25
+  transferredStudents: 2

@@ -1,0 +1,85 @@
+objects:
+- averageMark: 3
+  coordinates:
+    x: 30
+    y: 3
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 161
+    location:
+      name: East Davidbury
+      x: 30
+      y: 13
+      z: 1
+    name: Tonya Peterson
+  name: '6117'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 22
+  transferredStudents: 3
+- averageMark: 1
+  coordinates:
+    x: 38
+    y: 1
+  expelledStudents: 1
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 169
+    location:
+      name: Thomasshire
+      x: 30
+      y: 28
+      z: 40
+    name: Daniel Higgins
+  name: '526'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 11
+  transferredStudents: 2
+- averageMark: 2
+  coordinates:
+    x: 0
+    y: 14
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 194
+    location:
+      name: Zavalaview
+      x: 31
+      y: 5
+      z: 9
+    name: Michelle Wilson
+  name: '25169'
+  semesterEnum: SECOND
+  shouldBeExpelled: 3
+  studentsCount: 23
+  transferredStudents: 1
+- averageMark: 1
+  coordinates:
+    x: 24
+    y: 26
+  expelledStudents: 3
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 197
+    location:
+      name: New Stephen
+      x: 2
+      y: 12
+      z: 19
+    name: Mrs. Amanda Cox
+  name: '893'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 22
+  transferredStudents: 3

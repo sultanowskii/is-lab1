@@ -1,0 +1,190 @@
+objects:
+- averageMark: 2
+  coordinates:
+    x: 15
+    y: 3
+  expelledStudents: 4
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 159
+    location:
+      name: Frankborough
+      x: 17
+      y: 36
+      z: 32
+    name: Sarah Stone
+  name: '632'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 30
+  transferredStudents: 3
+- averageMark: 1
+  coordinates:
+    x: 13
+    y: 4
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 157
+    location:
+      name: Hectorstad
+      x: 36
+      y: 20
+      z: 15
+    name: Sara Price
+  name: '3067'
+  semesterEnum: SECOND
+  shouldBeExpelled: 2
+  studentsCount: 24
+  transferredStudents: 3
+- averageMark: 5
+  coordinates:
+    x: 22
+    y: 13
+  expelledStudents: 2
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 156
+    location:
+      name: Rodneystad
+      x: 10
+      y: 15
+      z: 2
+    name: James Willis
+  name: 069
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 21
+  transferredStudents: 2
+- averageMark: 2
+  coordinates:
+    x: 1
+    y: 4
+  expelledStudents: 1
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: YELLOW
+    height: 199
+    location:
+      name: Mejiamouth
+      x: 11
+      y: 20
+      z: 5
+    name: Stacey Taylor
+  name: '3758'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 20
+  transferredStudents: 2
+- averageMark: 2
+  coordinates:
+    x: 39
+    y: 33
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 152
+    location:
+      name: Williamborough
+      x: 31
+      y: 9
+      z: 14
+    name: Suzanne Mercado
+  name: '726'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 13
+  transferredStudents: 3
+- averageMark: 3
+  coordinates:
+    x: 6
+    y: 22
+  expelledStudents: 2
+  formOfEducation: EVENING_CLASSES
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 165
+    location:
+      name: Brianview
+      x: 4
+      y: 14
+      z: 8
+    name: Michael Hunt
+  name: '99377'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 1
+  studentsCount: 14
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 37
+    y: 12
+  expelledStudents: 5
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: WHITE
+    height: 164
+    location:
+      name: Donaldchester
+      x: 5
+      y: 29
+      z: 8
+    name: Lisa Swanson
+  name: '67263'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 23
+  transferredStudents: 1
+- averageMark: 5
+  coordinates:
+    x: 35
+    y: 0
+  expelledStudents: 2
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: YELLOW
+    height: 155
+    location:
+      name: Christensenberg
+      x: 37
+      y: 36
+      z: 28
+    name: Michael Roth
+  name: '2351'
+  semesterEnum: EIGHTH
+  shouldBeExpelled: 1
+  studentsCount: 13
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 3
+    y: 34
+  expelledStudents: 5
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: YELLOW
+    hairColor: ORANGE
+    height: 194
+    location:
+      name: East Michaelport
+      x: 8
+      y: 35
+      z: 23
+    name: Edward Wright
+  name: '33276'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 2
+  studentsCount: 14
+  transferredStudents: 2

@@ -28,6 +28,7 @@ public class Lab1ExceptionHandler extends ResponseEntityExceptionHandler {
             ex.getLocalizedMessage(),
             "Unexpected exception:" + ex
         );
+        ex.printStackTrace();
         return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
     }
 
