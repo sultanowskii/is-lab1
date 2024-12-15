@@ -20,6 +20,9 @@ public class ImportLog implements com.lab1.common.Entity {
     @JoinColumn(name = "performer", nullable = false)
     private User performer;
 
+    @Column(name = "file_key", nullable = false)
+    private String fileKey;
+
     @Column(name = "created_count", nullable = true)
     private Integer createdCount;
 

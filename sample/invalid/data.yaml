@@ -1,0 +1,17 @@
+objects:
+- averageMark: 1
+  coordinates:
+    x: 26
+    y: 9
+  expelledStudents: 4
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 155
+    name: da
+  name: 'NO LOCATION :)'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 25
+  transferredStudents: 2

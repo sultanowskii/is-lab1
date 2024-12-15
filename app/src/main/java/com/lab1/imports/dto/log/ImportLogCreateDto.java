@@ -12,7 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ImportLogCreateDto {
     @NotNull
-    private int createdCount;
+    private String fileKey;
+
+    private Integer createdCount;
 
     @NotNull
     private Status status;

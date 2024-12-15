@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +21,6 @@ import com.lab1.common.dto.SearchParamsDto;
 import com.lab1.common.error.ValidationException;
 import com.lab1.common.paging.PaginationMapper;
 import com.lab1.common.paging.dto.PaginationDto;
-import com.lab1.imports.dto.StudyGroupsImportDto;
 import com.lab1.imports.dto.log.ImportLogDto;
 import com.lab1.users.UserService;
 
@@ -59,16 +59,18 @@ public class ImportController {
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Operation(summary = "Import", security = @SecurityRequirement(name = "bearerTokenAuth"))
     public ResponseEntity<Object> upload(@RequestParam("file") MultipartFile file) {
-        StudyGroupsImportDto dto;
         try {
-            dto = importService.extractAndCreate(file);
+            importService.extractAndCreate(file);
         } catch (IOException e) {
-            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
 
-        importService.createBulk(dto);
-
         return ResponseEntity.status(201).build();
+    }
+
+    @GetMapping("/{id}")
+    @Operation(summary = "Get import", security = @SecurityRequirement(name = "bearerTokenAuth"))
+    public ResponseEntity<ImportLogDto> getById(@PathVariable("id") int id) {
+        return ResponseEntity.ok(importLogService.get(id));
     }
 }

@@ -9,6 +9,7 @@ import lombok.Data;
 public class ImportLogDto {
     private int id;
     private User performer;
+    private String fileKey;
     private int createdCount;
     private Status status;
 }

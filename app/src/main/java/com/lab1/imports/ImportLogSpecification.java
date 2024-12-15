@@ -46,7 +46,7 @@ public class ImportLogSpecification {
 
     public Specification<ImportLog> withPerformer(User user) {
         return (root, query, builder) -> {
-            return builder.equal(root.get("performer_id"), user.getId());
+            return builder.equal(root.get("performer"), user);
         };
     }
 }

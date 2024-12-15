@@ -4,9 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +25,7 @@ import com.lab1.common.TarGzUtil;
 import com.lab1.common.error.ValidationException;
 import com.lab1.imports.dto.StudyGroupImportDto;
 import com.lab1.imports.dto.StudyGroupsImportDto;
+import com.lab1.imports.dto.log.ImportLogCreateDto;
 import com.lab1.locations.LocationService;
 import com.lab1.persons.PersonService;
 import com.lab1.studygroups.StudyGroupService;
@@ -40,10 +44,12 @@ public class ImportService {
     @Autowired
     StudyGroupService studyGroupService;
     @Autowired
+    ImportLogService importLogService;
+    @Autowired
     ImportMapper mapper;
 
     @Transactional
-    public void createBulk(StudyGroupsImportDto dto) {
+    public int createBulk(StudyGroupsImportDto dto) {
         var studentGroupImportDtos = dto.getObjects();
 
         var locationImportDtos = studentGroupImportDtos.stream().map(sg -> sg.getGroupAdmin().getLocation()).toList();
@@ -82,7 +88,9 @@ public class ImportService {
             }
         )
         .toList();
-        studyGroupService.createAll(studyGroupCreateDtos);
+        var created = studyGroupService.createAll(studyGroupCreateDtos);
+
+        return created.size();
     }
 
     private Yaml getYamlParser() {
@@ -98,17 +106,31 @@ public class ImportService {
         LoudValidator.validate(dto.getGroupAdmin().getLocation());
     }
 
-    public StudyGroupsImportDto extractAndCreate(MultipartFile file) throws ConstraintViolationException, IOException {
+    private Path getOrCreateDataDir() {
+        var path = Paths.get("./data");
+
+        try {
+            if (!Files.exists(path)) {
+                path = Files.createDirectories(path);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return path;
+    }
+
+    private StudyGroupsImportDto extract(MultipartFile file, String fileKey) throws ConstraintViolationException, IOException {
         if (file.isEmpty() || !file.getOriginalFilename().endsWith(".tar.gz")) {
             throw new ValidationException(".tar.gz archive is expected");
         }
 
-        // Save file to tmp dir
-        var tempDir = Files.createTempDirectory("upload");
-        var tarGzFile = tempDir.resolve(file.getOriginalFilename());
+        // Save archive to specific dir
+        var archivesDir = getOrCreateDataDir();
+        var tarGzFile = archivesDir.resolve(fileKey);
         Files.copy(file.getInputStream(), tarGzFile, StandardCopyOption.REPLACE_EXISTING);
 
         // Extract tar.gz
+        var tempDir = Files.createTempDirectory("upload");
         var yamlFiles = TarGzUtil.extractYamlArchive(tarGzFile.toFile(), tempDir.toFile());
 
         // Parse files
@@ -128,5 +150,27 @@ public class ImportService {
         TarGzUtil.deleteDirectory(tempDir.toFile());
 
         return new StudyGroupsImportDto(flattenedDtos);
+    }
+
+    public void extractAndCreate(MultipartFile file) throws ConstraintViolationException, IOException {
+        var fileKey = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
+
+        var logDto = new ImportLogCreateDto();
+        logDto.setFileKey(fileKey);
+
+        int created;
+        try {
+            var dtos = extract(file, fileKey);
+            created = createBulk(dtos);
+        } catch (Exception e) {
+            logDto.setCreatedCount(null);
+            logDto.setStatus(Status.FAIL);
+            importLogService.create(logDto);
+            throw e;
+        }
+
+        logDto.setCreatedCount(created);
+        logDto.setStatus(Status.SUCCESS);
+        importLogService.create(logDto);
     }
 }

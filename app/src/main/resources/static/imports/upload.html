@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <link rel="stylesheet" href="/common/css/object.css">
+    <link rel="stylesheet" href="/common/css/buttons.css">
+    <script src="/imports/js/upload.js" defer type="module"></script>
+</head>
+<body>
+    <h1>Upload</h1>
+    <a href="/imports">&lt; &lt; Back to list</a>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+
+    <form id="import-form">
+        <label for="name">File:</label>
+        <input type="file" id="file" name="file" accept=".tar.gz">
+
+        <button class="button button-default" type="submit">Import objects</button>
+    </form>
+</body>
+</html>
