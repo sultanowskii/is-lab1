@@ -10,7 +10,7 @@ objects:
     hairColor: WHITE
     height: 155
     location:
-      name: these names differ (6)!
+      name: these names differ (8)!
       x: 22
       y: 27
       z: 38
@@ -31,7 +31,7 @@ objects:
     hairColor: ORANGE
     height: 190
     location:
-      name: absolutely the same name]
+      name: absolutely the same name[
       x: 2
       y: 19
       z: 4
