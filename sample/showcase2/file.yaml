@@ -1,0 +1,43 @@
+objects:
+- averageMark: 1
+  coordinates:
+    x: 26
+    y: 9
+  expelledStudents: 4
+  formOfEducation: FULL_TIME_EDUCATION
+  groupAdmin:
+    eyeColor: WHITE
+    hairColor: WHITE
+    height: 155
+    location:
+      name: these names differ (6)!
+      x: 22
+      y: 27
+      z: 38
+    name: some value
+  name: '3390'
+  semesterEnum: FOURTH
+  shouldBeExpelled: 3
+  studentsCount: 25
+  transferredStudents: 2
+- averageMark: 3
+  coordinates:
+    x: 15
+    y: 33
+  expelledStudents: 1
+  formOfEducation: DISTANCE_EDUCATION
+  groupAdmin:
+    eyeColor: ORANGE
+    hairColor: ORANGE
+    height: 190
+    location:
+      name: absolutely the same name]
+      x: 2
+      y: 19
+      z: 4
+    name: some other value
+  name: '4787'
+  semesterEnum: SECOND
+  shouldBeExpelled: 1
+  studentsCount: 11
+  transferredStudents: 2

@@ -1,5 +1,6 @@
 package com.lab1.locations;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,41 @@ public class LocationService extends CRUDService<Location, LocationDto, Location
         Specification<Location> specification = (root, query, criteriaBuilder) ->
             criteriaBuilder.equal(root.get("name"), name);
 
-        return repo.findOne(specification);
+        var results = repo.findAll(specification);
+
+        var size = results.size();
+
+        if (size == 0) {
+            return Optional.empty();
+        } else if (size == 1) {
+            return Optional.of(results.get(0));
+        } else {
+            throw new ValidationException("Location with name=" + name + " already exists");
+        }
+    }
+
+    @Override
+    @Retryable(
+        retryFor = { CannotAcquireLockException.class },
+        notRecoverable = { ValidationException.class },
+        maxAttempts = 20,
+        backoff = @Backoff(delay = 50)
+    )
+    @Transactional(isolation = Isolation.SERIALIZABLE)
+    public List<LocationDto> createAll(List<LocationCreateDto> forms) {
+        for (var form : forms) {
+            var name = form.getName();
+
+            var sameName = forms.stream().filter(f -> f.getName() == name).toList();
+            if (sameName.size() > 1) {
+                throw new ValidationException("Location with name=" + name + " is present multiple times in request!");
+            }
+
+            if (locationWithName(name).isPresent()) {
+                throw new ValidationException("Location with name=" + name + " already exists");
+            }
+        }
+        return super.createAll(forms);
     }
 
     @Override
@@ -73,5 +108,10 @@ public class LocationService extends CRUDService<Location, LocationDto, Location
     @Recover
     public LocationDto handleUpdateCannotAcquireLockException(CannotAcquireLockException e, int id, LocationCreateDto form) {
         throw new ValidationException("Could not acquire lock for updating location: " + form.getName());
+    }
+
+    @Recover
+    public LocationDto handleCreateAllCannotAcquireLockException(CannotAcquireLockException e, List<LocationCreateDto> forms) {
+        throw new ValidationException("Could not acquire lock for updating locations");
     }
 }
