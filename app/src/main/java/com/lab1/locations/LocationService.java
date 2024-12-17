@@ -20,13 +20,14 @@ import com.lab1.users.UserService;
 @Service
 public class LocationService extends CRUDService<Location, LocationDto, LocationCreateDto> {
     @Autowired
-    public LocationService(UserService userService, LocationRepository locationRepository, LocationMapper locationMapper) {
+    public LocationService(UserService userService, LocationRepository locationRepository,
+            LocationMapper locationMapper) {
         super(userService, locationRepository, locationMapper);
     }
 
     private Optional<Location> locationWithName(String name) {
-        Specification<Location> specification = (root, query, criteriaBuilder) ->
-            criteriaBuilder.equal(root.get("name"), name);
+        Specification<Location> specification = (root, query, criteriaBuilder) -> criteriaBuilder
+                .equal(root.get("name"), name);
 
         var results = repo.findAll(specification);
 
@@ -42,12 +43,8 @@ public class LocationService extends CRUDService<Location, LocationDto, Location
     }
 
     @Override
-    @Retryable(
-        retryFor = { CannotAcquireLockException.class },
-        notRecoverable = { ValidationException.class },
-        maxAttempts = 20,
-        backoff = @Backoff(delay = 50)
-    )
+    @Retryable(retryFor = { CannotAcquireLockException.class }, notRecoverable = {
+            ValidationException.class }, maxAttempts = 20, backoff = @Backoff(delay = 50))
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public List<LocationDto> createAll(List<LocationCreateDto> forms) {
         for (var form : forms) {
@@ -66,12 +63,8 @@ public class LocationService extends CRUDService<Location, LocationDto, Location
     }
 
     @Override
-    @Retryable(
-        retryFor = { CannotAcquireLockException.class },
-        notRecoverable = { ValidationException.class },
-        maxAttempts = 20,
-        backoff = @Backoff(delay = 50)
-    )
+    @Retryable(retryFor = { CannotAcquireLockException.class }, notRecoverable = {
+            ValidationException.class }, maxAttempts = 20, backoff = @Backoff(delay = 50))
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public LocationDto create(LocationCreateDto form) {
         String name = form.getName();
@@ -83,12 +76,8 @@ public class LocationService extends CRUDService<Location, LocationDto, Location
     }
 
     @Override
-    @Retryable(
-        retryFor = { CannotAcquireLockException.class },
-        notRecoverable = { ValidationException.class },
-        maxAttempts = 20,
-        backoff = @Backoff(delay = 50)
-    )
+    @Retryable(retryFor = { CannotAcquireLockException.class }, notRecoverable = {
+            ValidationException.class }, maxAttempts = 20, backoff = @Backoff(delay = 50))
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public LocationDto update(int id, LocationCreateDto form) {
         String name = form.getName();
@@ -106,12 +95,14 @@ public class LocationService extends CRUDService<Location, LocationDto, Location
     }
 
     @Recover
-    public LocationDto handleUpdateCannotAcquireLockException(CannotAcquireLockException e, int id, LocationCreateDto form) {
+    public LocationDto handleUpdateCannotAcquireLockException(CannotAcquireLockException e, int id,
+            LocationCreateDto form) {
         throw new ValidationException("Could not acquire lock for updating location: " + form.getName());
     }
 
     @Recover
-    public LocationDto handleCreateAllCannotAcquireLockException(CannotAcquireLockException e, List<LocationCreateDto> forms) {
+    public LocationDto handleCreateAllCannotAcquireLockException(CannotAcquireLockException e,
+            List<LocationCreateDto> forms) {
         throw new ValidationException("Could not acquire lock for updating locations");
     }
 }

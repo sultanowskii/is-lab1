@@ -8,6 +8,9 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import com.lab1.common.error.ServiceUnavailableException;
+import com.lab1.common.error.ValidationException;
+
 import lombok.Getter;
 
 @Getter
@@ -38,15 +41,18 @@ public class DBParticipant implements TransactionParticipant {
         try {
             f.run();
             this.state = State.PREPARED;
-        } catch (Exception e) {
+        } catch (ValidationException e) {
             lock.unlock();
             this.state = State.ABORTED;
             throw e;
+        } catch (Exception e) {
+            lock.unlock();
+            this.state = State.ABORTED;
+            throw new ServiceUnavailableException("Can't save objects from uploaded archive. Try again later");
         }
-        
+
         return this.state;
     }
-
 
     @Override
     public State abort() {

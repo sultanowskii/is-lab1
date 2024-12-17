@@ -24,20 +24,18 @@ public class Lab1ExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler({ Exception.class })
     public ResponseEntity<Object> handleAnyException(Exception ex) {
         final ApiError apiError = new ApiError(
-            HttpStatus.INTERNAL_SERVER_ERROR,
-            ex.getLocalizedMessage(),
-            "Unexpected exception:" + ex
-        );
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                ex.getLocalizedMessage(),
+                "Unexpected exception:" + ex);
         ex.printStackTrace();
         return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
     }
 
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
-        final MethodArgumentNotValidException ex,
-        final HttpHeaders headers,
-        final HttpStatusCode status,
-        final WebRequest request
-    ) {
+            final MethodArgumentNotValidException ex,
+            final HttpHeaders headers,
+            final HttpStatusCode status,
+            final WebRequest request) {
         final List<String> errors = new ArrayList<>();
         for (final FieldError error : ex.getBindingResult().getFieldErrors()) {
             errors.add(error.getField() + ": " + error.getDefaultMessage());
@@ -48,55 +46,59 @@ public class Lab1ExceptionHandler extends ResponseEntityExceptionHandler {
         final ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), errors);
         return handleExceptionInternal(ex, apiError, headers, apiError.getStatus(), request);
     }
-    
+
     @ExceptionHandler({ AuthenticationException.class })
     public ResponseEntity<Object> handleAuthenticationException(Exception ex) {
         final ApiError apiError = new ApiError(
-            HttpStatus.UNAUTHORIZED,
-            ex.getLocalizedMessage(),
-            "Authentication failed"
-        );
+                HttpStatus.UNAUTHORIZED,
+                ex.getLocalizedMessage(),
+                "Authentication failed");
         return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
     }
 
     @ExceptionHandler({ AccessDeniedException.class })
     public ResponseEntity<Object> handleAccessDeniedException(Exception ex) {
         final ApiError apiError = new ApiError(
-            HttpStatus.FORBIDDEN,
-            ex.getLocalizedMessage(),
-            "You don't have permissions to perform this action"
-        );
+                HttpStatus.FORBIDDEN,
+                ex.getLocalizedMessage(),
+                "You don't have permissions to perform this action");
         return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
     }
 
     @ExceptionHandler({ NotFoundException.class })
     public ResponseEntity<Object> handleNotFoundException(Exception ex) {
         final ApiError apiError = new ApiError(
-            HttpStatus.NOT_FOUND,
-            ex.getLocalizedMessage(),
-            "Resource not found"
-        );
+                HttpStatus.NOT_FOUND,
+                ex.getLocalizedMessage(),
+                "Resource not found");
         return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
     }
 
     @ExceptionHandler({ PermissionDeniedException.class })
     public ResponseEntity<Object> handlePermissionDenied(Exception ex) {
         final ApiError apiError = new ApiError(
-            HttpStatus.FORBIDDEN,
-            ex.getLocalizedMessage(),
-            "You don't have permissions to perform this action"
-        );
+                HttpStatus.FORBIDDEN,
+                ex.getLocalizedMessage(),
+                "You don't have permissions to perform this action");
         return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
     }
-
 
     @ExceptionHandler({ ValidationException.class, ConstraintViolationException.class })
     public ResponseEntity<Object> handleValidationException(Exception ex) {
         final ApiError apiError = new ApiError(
-            HttpStatus.BAD_REQUEST,
-            ex.getLocalizedMessage(),
-            "Bad request"
-        );
+                HttpStatus.BAD_REQUEST,
+                ex.getLocalizedMessage(),
+                "Bad request");
         return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
+    }
+
+    @ExceptionHandler({ ServiceUnavailableException.class })
+    public ResponseEntity<Object> handleServiceUnavailableException(Exception ex) {
+        final ApiError apiError = new ApiError(
+                HttpStatus.SERVICE_UNAVAILABLE,
+                ex.getLocalizedMessage(),
+                "Service or its part is unavailable. Try again later");
+        return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
+
     }
 }

@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +27,7 @@ import com.lab1.imports.dto.StudyGroupsImportDto;
 import com.lab1.imports.dto.log.ImportLogCreateDto;
 import com.lab1.imports.transaction.Coordinator;
 import com.lab1.imports.transaction.DBParticipant;
-import com.lab1.imports.transaction.FileWriteParticipant;
+import com.lab1.imports.transaction.S3Participant;
 import com.lab1.locations.LocationService;
 import com.lab1.persons.PersonService;
 import com.lab1.studygroups.StudyGroupService;
@@ -42,59 +40,58 @@ import lombok.*;
 @AllArgsConstructor
 public class ImportService {
     @Autowired
-    LocationService locationService;
+    private LocationService locationService;
     @Autowired
-    PersonService personService;
+    private PersonService personService;
     @Autowired
-    StudyGroupService studyGroupService;
+    private StudyGroupService studyGroupService;
     @Autowired
-    ImportLogService importLogService;
+    private ImportLogService importLogService;
     @Autowired
-    ImportMapper mapper;
+    private ImportMapper mapper;
     @Autowired
     private PlatformTransactionManager transactionManager;
+    @Autowired
+    private S3Service s3Service;
 
     @Transactional
     public int createBulk(StudyGroupsImportDto dto) {
-        // throw new ValidationException("testy test");
+        // throw new DataAccessResourceFailureException("testy test");
         var studentGroupImportDtos = dto.getObjects();
 
         var locationImportDtos = studentGroupImportDtos.stream().map(sg -> sg.getGroupAdmin().getLocation()).toList();
         var createdLocations = locationService.createAll(
-            locationImportDtos
-                .stream()
-                .map(l -> mapper.toLocationCreateDto(l))
-                .toList()
-        );
+                locationImportDtos
+                        .stream()
+                        .map(l -> mapper.toLocationCreateDto(l))
+                        .toList());
 
         var personCreateDtos = IntStream
-        .range(0, createdLocations.size())
-        .mapToObj(
-            i -> {
-                var personImportDto = studentGroupImportDtos.get(i).getGroupAdmin();
+                .range(0, createdLocations.size())
+                .mapToObj(
+                        i -> {
+                            var personImportDto = studentGroupImportDtos.get(i).getGroupAdmin();
 
-                var personCreateDto = mapper.toPersonCreateDto(personImportDto);
-                personCreateDto.setLocationId(createdLocations.get(i).getId());
+                            var personCreateDto = mapper.toPersonCreateDto(personImportDto);
+                            personCreateDto.setLocationId(createdLocations.get(i).getId());
 
-                return personCreateDto;
-            }
-        )
-        .toList();
+                            return personCreateDto;
+                        })
+                .toList();
         var createdPersons = personService.createAll(personCreateDtos);
 
         var studyGroupCreateDtos = IntStream
-        .range(0, createdPersons.size())
-        .mapToObj(
-            i -> {
-                var studyGroupImportDto = studentGroupImportDtos.get(i);
+                .range(0, createdPersons.size())
+                .mapToObj(
+                        i -> {
+                            var studyGroupImportDto = studentGroupImportDtos.get(i);
 
-                var studyGroupCreateDto = mapper.toStudyGroupCreateDto(studyGroupImportDto);
-                studyGroupCreateDto.setGroupAdminId(createdPersons.get(i).getId());
+                            var studyGroupCreateDto = mapper.toStudyGroupCreateDto(studyGroupImportDto);
+                            studyGroupCreateDto.setGroupAdminId(createdPersons.get(i).getId());
 
-                return studyGroupCreateDto;
-            }
-        )
-        .toList();
+                            return studyGroupCreateDto;
+                        })
+                .toList();
         var created = studyGroupService.createAll(studyGroupCreateDtos);
 
         return created.size();
@@ -113,20 +110,8 @@ public class ImportService {
         LoudValidator.validate(dto.getGroupAdmin().getLocation());
     }
 
-    private Path getOrCreateDataDir() {
-        var path = Paths.get("./data");
-
-        try {
-            if (!Files.exists(path)) {
-                path = Files.createDirectories(path);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return path;
-    }
-
-    private StudyGroupsImportDto extract(MultipartFile file, String fileKey) throws ConstraintViolationException, IOException {
+    private StudyGroupsImportDto extract(MultipartFile file, String fileKey)
+            throws ConstraintViolationException, IOException {
         if (file.isEmpty() || !file.getOriginalFilename().endsWith(".tar.gz")) {
             throw new ValidationException(".tar.gz archive is expected");
         }
@@ -135,6 +120,7 @@ public class ImportService {
         var tempDir = Files.createTempDirectory("upload");
         var tarGzFile = tempDir.resolve(fileKey);
         Files.copy(file.getInputStream(), tarGzFile, StandardCopyOption.REPLACE_EXISTING);
+
         var yamlFiles = TarGzUtil.extractYamlArchive(tarGzFile.toFile(), tempDir.toFile());
 
         // Parse files
@@ -151,8 +137,7 @@ public class ImportService {
         flattenedDtos.stream().forEach(this::validateStudyGroupImportDto);
 
         // Remove tmp dir
-        TarGzUtil.deleteDirectory(tempDir.toFile());
-
+        FileUtil.deleteDirectory(tempDir.toFile());
         return new StudyGroupsImportDto(flattenedDtos);
     }
 
@@ -166,19 +151,14 @@ public class ImportService {
 
         try {
             // Save archive to specific dir
-            var archivesDir = getOrCreateDataDir();
-            var tarGzFile = archivesDir.resolve(fileKey);
-            
-            var fp = new FileWriteParticipant(tarGzFile, file.getBytes());
-            var dbp = new DBParticipant(
-                () -> {
-                    createBulk(dtos);
-                },
-                transactionManager
-            );
+            var tmpDir = Files.createTempDirectory("upload");
+            var tarGzFile = tmpDir.resolve(fileKey);
+            Files.copy(file.getInputStream(), tarGzFile, StandardCopyOption.REPLACE_EXISTING);
 
-            var coordinator = new Coordinator(fp, dbp);
-            // TODO: find a reason for abort without exception?
+            var s3p = new S3Participant(s3Service, fileKey, tarGzFile);
+            var dbp = new DBParticipant(() -> createBulk(dtos), transactionManager);
+
+            var coordinator = new Coordinator(s3p, dbp);
             coordinator.perform();
         } catch (Exception e) {
             logDto.setCreatedCount(null);

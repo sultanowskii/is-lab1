@@ -13,14 +13,13 @@ import java.util.zip.GZIPInputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 
-
 public class TarGzUtil {
     public static List<File> extractYamlArchive(File tarGzFile, File outputDir) throws IOException {
         List<File> extractedFiles = new ArrayList<>();
 
         try (InputStream fileStream = new FileInputStream(tarGzFile);
-            InputStream gzipStream = new GZIPInputStream(fileStream);
-            TarArchiveInputStream tarStream = new TarArchiveInputStream(gzipStream)) {
+                InputStream gzipStream = new GZIPInputStream(fileStream);
+                TarArchiveInputStream tarStream = new TarArchiveInputStream(gzipStream)) {
 
             TarArchiveEntry entry;
             while ((entry = tarStream.getNextEntry()) != null) {
@@ -44,19 +43,5 @@ public class TarGzUtil {
             }
         }
         return extractedFiles;
-    }
-
-    public static void deleteDirectory(File directory) {
-        File[] files = directory.listFiles();
-        if (files != null) {
-            for (File file : files) {
-                if (file.isDirectory()) {
-                    deleteDirectory(file);
-                } else {
-                    file.delete();
-                }
-            }
-        }
-        directory.delete();
     }
 }
