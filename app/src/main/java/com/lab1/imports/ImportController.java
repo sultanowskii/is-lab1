@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,7 +43,8 @@ public class ImportController {
 
     @GetMapping
     @Operation(summary = "Get all imports", security = @SecurityRequirement(name = "bearerTokenAuth"))
-    public ResponseEntity<Page<ImportLogDto>> getAll(SearchParamsDto searchParamsDto, @PageableDefault(size = 20) PaginationDto pagiationDto) throws ValidationException {
+    public ResponseEntity<Page<ImportLogDto>> getAll(SearchParamsDto searchParamsDto,
+            @PageableDefault(size = 20) PaginationDto pagiationDto) throws ValidationException {
         searchParamsDto.validate();
         var user = userService.getCurrentUser();
         Specification<ImportLog> spec = specBuilder.build(user);
@@ -64,5 +66,17 @@ public class ImportController {
     @Operation(summary = "Get import", security = @SecurityRequirement(name = "bearerTokenAuth"))
     public ResponseEntity<ImportLogDto> getById(@PathVariable("id") int id) {
         return ResponseEntity.ok(importLogService.get(id));
+    }
+
+    @GetMapping("/{id}/download")
+    @Operation(summary = "Download the import file", security = @SecurityRequirement(name = "bearerTokenAuth"))
+    public ResponseEntity<byte[]> downloadFile(@PathVariable("id") int id) {
+        var data = importService.getImportFile(id);
+
+        System.out.println("LETS GOOO");
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"archive" + id + "\".tar.gz")
+                .body(data);
     }
 }

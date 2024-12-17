@@ -12,13 +12,11 @@ function sortWithPreferenceToId(strings) {
 export function renderTable(data, containerId, sampleObject, resourcePath) {
     const container = document.getElementById(containerId);
 
-    // Create the table element
     const table = document.createElement("table");
     table.style.borderCollapse = "collapse";
     table.style.width = "100%";
     table.style.margin = "20px 0";
 
-    // Generate table headers
     const headers = sortWithPreferenceToId(Object.keys(sampleObject));
     const thead = document.createElement("thead");
     const headerRow = document.createElement("tr");
@@ -36,7 +34,6 @@ export function renderTable(data, containerId, sampleObject, resourcePath) {
     thead.appendChild(headerRow);
     table.appendChild(thead);
 
-    // Generate table rows
     const tbody = document.createElement("tbody");
     data.forEach(row => {
         const tr = document.createElement("tr");

@@ -12,6 +12,11 @@ public class ImportWebController {
         return "imports/imports";
     }
 
+    @GetMapping("/imports/{id}")
+    public String pageImport() {
+        return "imports/import";
+    }
+
     @GetMapping("/imports/upload")
     public String pageUpload() {
         return "imports/upload";

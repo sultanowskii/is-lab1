@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import</title>
+    <link rel="stylesheet" href="/common/css/object.css">
+    <link rel="stylesheet" href="/common/css/buttons.css">
+    <script src="/imports/js/import.js" defer type="module"></script>
+</head>
+<body>
+    <h1>Import</h1>
+    <a href="/imports">&lt; &lt; Back to list</a>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+
+    <form id="import-form">
+        <!-- read-only fields -->
+        <label for="performer-username">Performer username:</label>
+        <input type="text" id="performer-username" disabled>
+
+        <label for="status">Status:</label>
+        <input class="form-input" type="text" id="status" name="status" disabled>
+
+        <label for="created-count">Created:</label>
+        <input class="form-input" type="number" id="created-count" name="created-count" disabled>
+        <!--  -->
+
+        <button class="form-input button button-download" id="button-download" type="button">Download Import File</button>
+    </form>
+</body>
+</html>

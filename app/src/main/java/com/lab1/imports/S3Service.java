@@ -1,5 +1,6 @@
 package com.lab1.imports;
 
+import java.io.IOException;
 import java.nio.file.Path;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -32,7 +33,17 @@ public class S3Service {
         s3Client.putObject(request, filePath);
     }
 
-    public void downloadFile(String key, Path destinationPath) throws S3Exception {
+    public byte[] downloadFile(String key) throws S3Exception, IOException {
+        var request = GetObjectRequest
+                .builder()
+                .bucket(bucketName)
+                .key(key)
+                .build();
+
+        return s3Client.getObject(request).readAllBytes();
+    }
+
+    public void downloadFileTo(String key, Path destinationPath) throws S3Exception {
         var request = GetObjectRequest
                 .builder()
                 .bucket(bucketName)

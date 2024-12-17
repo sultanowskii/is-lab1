@@ -21,6 +21,7 @@ import org.yaml.snakeyaml.constructor.Constructor;
 
 import com.lab1.common.LoudValidator;
 import com.lab1.common.TarGzUtil;
+import com.lab1.common.error.NotFoundException;
 import com.lab1.common.error.ValidationException;
 import com.lab1.imports.dto.StudyGroupImportDto;
 import com.lab1.imports.dto.StudyGroupsImportDto;
@@ -34,6 +35,8 @@ import com.lab1.studygroups.StudyGroupService;
 
 import jakarta.validation.ConstraintViolationException;
 import lombok.*;
+import software.amazon.awssdk.services.s3.model.InvalidObjectStateException;
+import software.amazon.awssdk.services.s3.model.NoSuchKeyException;
 
 @Service
 @RequiredArgsConstructor
@@ -170,5 +173,19 @@ public class ImportService {
         logDto.setCreatedCount(dtos.getObjects().size());
         logDto.setStatus(Status.SUCCESS);
         importLogService.create(logDto);
+    }
+
+    public byte[] getImportFile(int id) {
+        var importLog = importLogService.get(id);
+
+        var key = importLog.getFileKey();
+
+        try {
+            return s3Service.downloadFile(key);
+        } catch (NoSuchKeyException | InvalidObjectStateException e) {
+            throw new NotFoundException("Associated import file is not available or doesn't exist");
+        } catch (IOException e) {
+            throw new NotFoundException("Associated import file can't be read. Try again later");
+        }
     }
 }

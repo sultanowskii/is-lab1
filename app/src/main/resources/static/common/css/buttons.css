@@ -22,3 +22,11 @@
 .button-delete:hover {
     background-color: #9e0000;
 }
+
+.button-download {
+    background-color: #0cac4f;
+} 
+
+.button-download:hover {
+    background-color: #0b833d;
+} 

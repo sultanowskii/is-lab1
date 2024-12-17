@@ -12,7 +12,6 @@ const sampleObject = flattenObject({
         "username": "",
         "type": ""
     },
-    "fileKey": "",
     "createdCount": 0,
     "status": ""
 });
