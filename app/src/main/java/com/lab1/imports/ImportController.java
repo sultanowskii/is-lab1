@@ -1,12 +1,9 @@
 package com.lab1.imports;
 
-import java.io.IOException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,13 +55,8 @@ public class ImportController {
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Operation(summary = "Import", security = @SecurityRequirement(name = "bearerTokenAuth"))
-    public ResponseEntity<Object> upload(@RequestParam("file") MultipartFile file) {
-        try {
-            importService.extractAndCreate(file);
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-
+    public ResponseEntity<Void> upload(@RequestParam("file") MultipartFile file) throws Exception {
+        importService.extractAndCreate(file);
         return ResponseEntity.status(201).build();
     }
 

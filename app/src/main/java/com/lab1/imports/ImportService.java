@@ -14,6 +14,7 @@ import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.yaml.snakeyaml.LoaderOptions;
@@ -26,6 +27,9 @@ import com.lab1.common.error.ValidationException;
 import com.lab1.imports.dto.StudyGroupImportDto;
 import com.lab1.imports.dto.StudyGroupsImportDto;
 import com.lab1.imports.dto.log.ImportLogCreateDto;
+import com.lab1.imports.transaction.Coordinator;
+import com.lab1.imports.transaction.DBParticipant;
+import com.lab1.imports.transaction.FileWriteParticipant;
 import com.lab1.locations.LocationService;
 import com.lab1.persons.PersonService;
 import com.lab1.studygroups.StudyGroupService;
@@ -47,9 +51,12 @@ public class ImportService {
     ImportLogService importLogService;
     @Autowired
     ImportMapper mapper;
+    @Autowired
+    private PlatformTransactionManager transactionManager;
 
     @Transactional
     public int createBulk(StudyGroupsImportDto dto) {
+        // throw new ValidationException("testy test");
         var studentGroupImportDtos = dto.getObjects();
 
         var locationImportDtos = studentGroupImportDtos.stream().map(sg -> sg.getGroupAdmin().getLocation()).toList();
@@ -124,13 +131,10 @@ public class ImportService {
             throw new ValidationException(".tar.gz archive is expected");
         }
 
-        // Save archive to specific dir
-        var archivesDir = getOrCreateDataDir();
-        var tarGzFile = archivesDir.resolve(fileKey);
-        Files.copy(file.getInputStream(), tarGzFile, StandardCopyOption.REPLACE_EXISTING);
-
         // Extract tar.gz
         var tempDir = Files.createTempDirectory("upload");
+        var tarGzFile = tempDir.resolve(fileKey);
+        Files.copy(file.getInputStream(), tarGzFile, StandardCopyOption.REPLACE_EXISTING);
         var yamlFiles = TarGzUtil.extractYamlArchive(tarGzFile.toFile(), tempDir.toFile());
 
         // Parse files
@@ -152,16 +156,30 @@ public class ImportService {
         return new StudyGroupsImportDto(flattenedDtos);
     }
 
-    public void extractAndCreate(MultipartFile file) throws ConstraintViolationException, IOException {
+    public void extractAndCreate(MultipartFile file) throws Exception {
         var fileKey = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
 
         var logDto = new ImportLogCreateDto();
         logDto.setFileKey(fileKey);
 
-        int created;
+        var dtos = extract(file, fileKey);
+
         try {
-            var dtos = extract(file, fileKey);
-            created = createBulk(dtos);
+            // Save archive to specific dir
+            var archivesDir = getOrCreateDataDir();
+            var tarGzFile = archivesDir.resolve(fileKey);
+            
+            var fp = new FileWriteParticipant(tarGzFile, file.getBytes());
+            var dbp = new DBParticipant(
+                () -> {
+                    createBulk(dtos);
+                },
+                transactionManager
+            );
+
+            var coordinator = new Coordinator(fp, dbp);
+            // TODO: find a reason for abort without exception?
+            coordinator.perform();
         } catch (Exception e) {
             logDto.setCreatedCount(null);
             logDto.setStatus(Status.FAIL);
@@ -169,7 +187,7 @@ public class ImportService {
             throw e;
         }
 
-        logDto.setCreatedCount(created);
+        logDto.setCreatedCount(dtos.getObjects().size());
         logDto.setStatus(Status.SUCCESS);
         importLogService.create(logDto);
     }
