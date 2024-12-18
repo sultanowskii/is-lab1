@@ -2,8 +2,12 @@ package com.lab1.imports.transaction;
 
 import java.nio.file.Path;
 
+import org.springframework.retry.support.RetryTemplate;
+
 import com.lab1.common.error.ServiceUnavailableException;
 import com.lab1.imports.S3Service;
+
+import software.amazon.awssdk.core.exception.SdkClientException;
 
 public class S3Participant implements TransactionParticipant {
     private S3Service s3Service;
@@ -20,16 +24,28 @@ public class S3Participant implements TransactionParticipant {
         this.uploaded = false;
     }
 
-    @Override
-    public State prepare() throws Exception {
-        try {
-            this.s3Service.uploadFile(this.key, this.filePath);
-        } catch (Exception e) {
-            throw new ServiceUnavailableException("Can't save the uploaded archive. Try again later");
-        }
+    private State doPrepare() throws Exception {
+        this.s3Service.uploadFile(this.key, this.filePath);
         this.state = State.PREPARED;
         uploaded = true;
         return this.state;
+    }
+
+    @Override
+    public State prepare() throws Exception {
+        RetryTemplate template = RetryTemplate.builder()
+                .maxAttempts(50)
+                .fixedBackoff(300)
+                .retryOn(SdkClientException.class)
+                .build();
+
+        try {
+            return template.execute(ctx -> {
+                return doPrepare();
+            });
+        } catch (Exception e) {
+            throw new ServiceUnavailableException("Can't save the uploaded archive. Try again later");
+        }
     }
 
     @Override

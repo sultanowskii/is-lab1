@@ -6,8 +6,8 @@ import java.util.List;
 public class Coordinator {
     private List<TransactionParticipant> participants;
     private ArrayList<TransactionParticipant> prepared;
-    
-    public Coordinator(TransactionParticipant ...participants) {
+
+    public Coordinator(TransactionParticipant... participants) {
         this.participants = List.of(participants);
         this.prepared = new ArrayList<>();
     }

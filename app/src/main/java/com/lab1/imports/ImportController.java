@@ -73,8 +73,6 @@ public class ImportController {
     public ResponseEntity<byte[]> downloadFile(@PathVariable("id") int id) {
         var data = importService.getImportFile(id);
 
-        System.out.println("LETS GOOO");
-
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"archive" + id + "\".tar.gz")
                 .body(data);
